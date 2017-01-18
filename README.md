@@ -1,2 +1,3 @@
 # golf
 frisbee
+kiekko
