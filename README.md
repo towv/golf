@@ -12,6 +12,6 @@ Yksinkertainen frisbeegolf-peli.
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[Checkstyle-raportti](dokumentaatio/Checkstyle-raportit/checkstyle.html)
+[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/checkstyle.html)
 
 [PIT-raportti](dokumentaatio/pit/)
