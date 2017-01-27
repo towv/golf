@@ -11,4 +11,4 @@ Käytetään näppäimistöllä.
 
 **Kaikkien käyttäjien toiminnot:** Pelaajatunnuksen luominen, frisbeen heittäminen
 
-**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Kaaviot/luokkakaavio.jpg)
+**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](dokumentaatio/Kaaviot/luokkakaavio.jpg)
