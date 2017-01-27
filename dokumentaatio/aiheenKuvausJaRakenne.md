@@ -10,3 +10,5 @@ Käytetään näppäimistöllä.
 **Käyttäjä:** Pelaaja, (pelaajat)
 
 **Kaikkien käyttäjien toiminnot:** Pelaajatunnuksen luominen, frisbeen heittäminen
+
+**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](/home/twviiala/golf/dokumentaatio/Kaaviot/luokkakaavio.jpg)

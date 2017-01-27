@@ -1,13 +1,53 @@
-
 package golfing.kiekko;
 
 public class Kiekko {
+
     private String nimi;
     private int liito;
+    private int nopeus;
+    private int loppufeidi;
+    private Vari vari;
+    private Sijainti sijainti;
 
     public Kiekko(String nimi) {
         this.nimi = nimi;
         this.liito = 5;
+        this.nopeus = 5;
+        this.loppufeidi = 0;
+        this.vari = vari.VIHREA;
+        this.sijainti = new Sijainti(10, 10);
+    }
+
+    public Kiekko(String nimi, int xalussa, int yalussa) {
+        this.nimi = nimi;
+        this.liito = 5;
+        this.nopeus = 5;
+        this.loppufeidi = 0;
+        this.vari = vari.VIHREA;
+        this.sijainti = new Sijainti(xalussa, yalussa);
+    }
+
+    public Sijainti getSijainti() {
+        return sijainti;
+    }
+
+    public int getNopeus() {
+        return nopeus;
+    }
+
+    public void setNopeus(int nopeus) {
+        if (nopeus < 0) {
+            return;
+        }
+        this.nopeus = nopeus;
+    }
+
+    public int getLoppufeidi() {
+        return loppufeidi;
+    }
+
+    public void setLoppufeidi(int loppufeidi) {
+        this.loppufeidi = loppufeidi;
     }
 
     public String getNimi() {
@@ -24,5 +64,9 @@ public class Kiekko {
         }
         this.nimi = nimi;
     }
-    
+
+    public void liiku() {
+        this.sijainti.setY(this.sijainti.getY() - 1);
+    }
+
 }
