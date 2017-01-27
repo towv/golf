@@ -11,4 +11,4 @@ Käytetään näppäimistöllä.
 
 **Kaikkien käyttäjien toiminnot:** Pelaajatunnuksen luominen, frisbeen heittäminen
 
-**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](dokumentaatio/Kaaviot/luokkakaavio.jpg)
+**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](Kaaviot/luokkakaavio.jpg)
