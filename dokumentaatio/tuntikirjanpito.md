@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 26.01.2017 | 2.0h | Luonnostelua javalla ja testien kirjoittamista
 26.01.2017 | 3.0h | Raakile auttamaan rakenteen hahmottamisessa
 27.01.2017 | 4.0h | Luokkakaavio, testejä, javaa
+02.02.2017 | 2.0h | Rakenteen muutoksen sunnittelua paperilla ja javalla, readme-päivitys

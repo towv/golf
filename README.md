@@ -14,4 +14,4 @@ Yksinkertainen frisbeegolf-peli.
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/checkstyle.html)
 
-[PIT-raportti](dokumentaatio/pit/)
+[PIT-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/pit/index.html)
