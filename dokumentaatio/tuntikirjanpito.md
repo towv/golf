@@ -9,4 +9,7 @@ Päivä | Tunnit | Kuvaus
 26.01.2017 | 2.0h | Luonnostelua javalla ja testien kirjoittamista
 26.01.2017 | 3.0h | Raakile auttamaan rakenteen hahmottamisessa
 27.01.2017 | 4.0h | Luokkakaavio, testejä, javaa
+30.01.2017 | 1.0h | Suunnittelua
 02.02.2017 | 2.0h | Rakenteen muutoksen sunnittelua paperilla ja javalla, readme-päivitys
+02.02.2017 | 1.0h | Luokkien muokkausta, pitää miettiä uudestaan
+03.02.2017 | 5.0h | Yritys koodata, pitää vielä miettiä miten kiekon heittäminen toteutuu parhaiten, en päivittänyt kaikkia testejä kun luokat ovat hieman muutospaineessa, mutta mm. pelaaja luokalle lisätty testejä

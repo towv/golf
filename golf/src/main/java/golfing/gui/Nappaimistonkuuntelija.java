@@ -6,35 +6,46 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Nappaimistonkuuntelija implements KeyListener {
-
+    
     private Heitto heitto;
-
+    
     public Nappaimistonkuuntelija(Heitto heitto) {
         this.heitto = heitto;
     }
-
+    
     @Override
     public void keyTyped(KeyEvent e) {
-
+        
     }
-
+    
     @Override
     public void keyPressed(KeyEvent e) {
+        if (heitto.getVoima() == 0) {
+            heitto.kasvataVoimaa();
+        }
+        
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            heitto.kasvataSuuntaa();
+            heitto.vahennaSuuntaa();
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-
+            heitto.kasvataSuuntaa();
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            System.out.println("kasvakasva");
             heitto.kasvataVoimaa();
         } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                heitto.setKerroin(heitto.getVoima() / heitto.getSuunta());
+            } catch (Exception nollajako) {
+                heitto.setKerroin(1);
+            }
+            if (heitto.getKerroin() == 0) {
+                heitto.setKerroin(1);
+            }
             heitto.setTiiaus(true);
         }
-
+        
     }
-
+    
     @Override
     public void keyReleased(KeyEvent e) {
     }
-
+    
 }

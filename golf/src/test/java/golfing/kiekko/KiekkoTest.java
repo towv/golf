@@ -65,7 +65,7 @@ public class KiekkoTest {
     public void liikuMetodinTestaus() {
         Kiekko kiekko = new Kiekko("nimi", 0, 1);
         assertEquals(kiekko.getSijainti().toString(), "01");
-        kiekko.liiku();
+        kiekko.liiku(Suunta.YLOS);
         assertEquals(kiekko.getSijainti().toString(), "00");
     }
     

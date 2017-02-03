@@ -1,14 +1,21 @@
 package golfing;
 
 import golfing.gui.Kayttoliittyma;
+import golfing.kiekko.Pelaaja;
 import golfing.peli.Kiekkopeli;
 import javax.swing.SwingUtilities;
 
 public class Main {
 
     public static void main(String[] args) {
+        int leveys = 20;
+        int korkeus = 20;
+        
+        Pelaaja pelaaja = new Pelaaja("nimi", leveys, korkeus);
+        
+        pelaaja.lisaaKiekko();
 
-        Kiekkopeli kike = new Kiekkopeli(20, 20);
+        Kiekkopeli kike = new Kiekkopeli(leveys, korkeus, pelaaja);
 
         Kayttoliittyma kali = new Kayttoliittyma(kike, 20);
         SwingUtilities.invokeLater(kali);

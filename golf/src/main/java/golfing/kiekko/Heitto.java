@@ -5,6 +5,15 @@ public class Heitto {
     private int voima;
     private int suunta;
     private boolean tiiaus;
+    private int kerroin;
+
+    public int getKerroin() {
+        return kerroin;
+    }
+
+    public void setKerroin(int kerroin) {
+        this.kerroin = kerroin;
+    }
 
     public Heitto(int voima, int suunta) {
         this.voima = voima;
@@ -26,6 +35,10 @@ public class Heitto {
 
     public void kasvataSuuntaa() {
         suunta++;
+    }
+    
+    public void vahennaSuuntaa() {
+        suunta--;
     }
 
     public void vahennaVoimaa() {

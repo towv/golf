@@ -1,10 +1,11 @@
 package golfing.peli;
 
-import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import golfing.gui.Paivitettava;
 import golfing.kiekko.Heitto;
 import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;
+import golfing.kiekko.Pelaaja;
+import golfing.kiekko.Suunta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -15,17 +16,20 @@ public class Kiekkopeli extends Timer implements ActionListener {
     private int korkeus;
     private boolean jatkuu;
     private Paivitettava paivitettava;
+    private Pelaaja pelaaja;
     private Kiekko kiekko;
     private Kori kori;
     private Heitto heitto;
+    private boolean apukyrpa;
 
-    public Kiekkopeli(int leveys, int korkeus) {
+    public Kiekkopeli(int leveys, int korkeus, Pelaaja pelaaja) {
         super(1000, null);
 
+        this.pelaaja = pelaaja;
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.jatkuu = true;
-        this.kiekko = new Kiekko("nimi", leveys / 2, korkeus - 1);
+        this.kiekko = this.pelaaja.getKiekko("draiveri");
         this.kori = new Kori(leveys / 2, 0);
         this.heitto = new Heitto(0, 0);
 
@@ -77,17 +81,46 @@ public class Kiekkopeli extends Timer implements ActionListener {
             return;
         }
 
-        if (heitto.getTiiaus()) {
-            kiekko.liiku();
-            if (kiekko.getSijainti().osuu(kori)) {
-                System.out.println("KORISSA");
-                jatkuu = false;
+        if (heitto.getVoima() == 1) {
+            if (heitto.getVoima() == 0) {
+                pelaaja.lisaaHeitto();
+                System.out.println("Olet nyt heittänyt " + pelaaja.montakoHeittoa() + " kertaa.");
             }
+        }
+
+        if (heitto.getTiiaus()) {
+
+//            if (heitto.getSuunta() != 0) {
+            if (heitto.getVoima() % heitto.getKerroin() == 0) {
+                if (heitto.getSuunta() < 0) {
+                    kiekko.liiku(Suunta.VASEN);
+                    heitto.kasvataSuuntaa();
+                } else if (heitto.getSuunta() > 0) {
+                    kiekko.liiku(Suunta.OIKEA);
+                    heitto.vahennaSuuntaa();
+                }
+            }
+//            }
+
+            kiekko.liiku(Suunta.YLOS);
             heitto.vahennaVoimaa();
 
+            if (kiekko.getSijainti().osuu(kori)) {
+                if (heitto.getVoima() > 3) {
+                    System.out.println("Kiekko tippui korista");
+                    System.out.println("Joudutaan heittämään vielä kerran..");
+                    System.out.println();
+                    pelaaja.lisaaHeitto();
+
+                }
+                System.out.println("KORISSA");
+                System.out.println("Selvitit väylän " + pelaaja.montakoHeittoa() + " heitolla.");
+                jatkuu = false;
+            }
         }
 
         if (heitto.getVoima() == 0) {
+            heitto.setKerroin(0);
             heitto.setTiiaus(false);
         }
 
