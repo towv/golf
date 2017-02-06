@@ -17,4 +17,12 @@ public class Rata {
     public void lisaaVayla(Vayla vayla) {
         vaylat.add(vayla);
     }
+
+    public String getNimi() {
+        return nimi;
+    }
+
+    public List<Vayla> getVaylat() {
+        return vaylat;
+    }
 }

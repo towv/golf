@@ -9,4 +9,8 @@ public class Vayla {
     public Vayla(Kori kori) {
         this.kori = kori;
     }
+
+    public Kori getKori() {
+        return kori;
+    }    
 }

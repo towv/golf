@@ -9,6 +9,7 @@ public class Pelaaja {
     private Sijainti sijainti;
     private int heitot;
     private Heitto heitto;
+    private Vari kaytossaOlevanKiekonVari;
 
     public Pelaaja(String nimi, int leveys, int korkeus) {
         this.nimi = nimi;
@@ -42,4 +43,8 @@ public class Pelaaja {
         return heitto;
     }
 
+    public Vari getKaytossaOlevanKiekonVari() {
+        kaytossaOlevanKiekonVari = getKiekko("draiveri").getVari();
+        return kaytossaOlevanKiekonVari;
+    }
 }

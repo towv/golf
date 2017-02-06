@@ -25,7 +25,7 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame("Kumpulan frisbeegolfrata");
+        frame = new JFrame(kike.getRata());
         int leveys = (kike.getLeveys() + 1) * pituus + 10;
         int korkeus = (kike.getKorkeus() + 1) * pituus + 10;
 

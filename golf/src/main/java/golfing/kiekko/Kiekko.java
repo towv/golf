@@ -14,7 +14,7 @@ public class Kiekko {
         this.liito = 5;
         this.nopeus = 5;
         this.loppufeidi = 0;
-        this.vari = vari.VIHREA;
+        this.vari = vari.LIILA;
         this.sijainti = new Sijainti(10, 10);
     }
     
@@ -23,7 +23,7 @@ public class Kiekko {
         this.liito = 5;
         this.nopeus = 5;
         this.loppufeidi = 0;
-        this.vari = vari.VIHREA;
+        this.vari = vari.LIILA;
         this.sijainti = new Sijainti(xalussa, yalussa);
     }
     
@@ -63,6 +63,10 @@ public class Kiekko {
             return;
         }
         this.nimi = nimi;
+    }
+
+    public Vari getVari() {
+        return vari;
     }
     
     public void liiku(Suunta suunta) {

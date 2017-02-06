@@ -17,7 +17,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         super.setBackground(Color.CYAN);
         this.kiekkopeli = kiekkopeli;
         this.kiekonLeveys = kiekonLeveys;
-        this.kiekonVari = Vari.VIHREA;
+        this.kiekonVari = kiekkopeli.getPelaaja().getKaytossaOlevanKiekonVari();
     }
 
     @Override
@@ -46,8 +46,15 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
         g.setColor(Color.BLACK);
         g.fillOval(kiekkopeli.getKori().getX() * kiekonLeveys, kiekkopeli.getKori().getY() * kiekonLeveys, kiekonLeveys * 2, kiekonLeveys * 2);
-
-        g.setColor(Color.MAGENTA);
+        
+        if (kiekonVari == Vari.LIILA) {
+            g.setColor(Color.MAGENTA);
+        } else if (kiekonVari == Vari.HARMAA) {
+            g.setColor(Color.GRAY);
+        } else if (kiekonVari == Vari.SININEN) {
+            g.setColor(Color.BLUE);
+        }
+        
         g.fillOval(kiekkopeli.getKiekko().getSijainti().getX() * kiekonLeveys, kiekkopeli.getKiekko().getSijainti().getY() * kiekonLeveys, kiekonLeveys, kiekonLeveys);
     }
 

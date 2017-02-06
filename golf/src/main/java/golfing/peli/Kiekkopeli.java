@@ -6,6 +6,8 @@ import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;
 import golfing.kiekko.Pelaaja;
 import golfing.kiekko.Suunta;
+import golfing.rata.Radat;
+import golfing.rata.Rata;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -17,6 +19,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
     private boolean jatkuu;
     private boolean liianlujaa;
     private Paivitettava paivitettava;
+    private Rata rata;
     private Pelaaja pelaaja;
     private Kiekko kiekko;
     private Kori kori;
@@ -24,7 +27,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
     private String tilanne;
     private String viesti;
     
-    public Kiekkopeli(int leveys, int korkeus, Pelaaja pelaaja) {
+    public Kiekkopeli(int leveys, int korkeus, Pelaaja pelaaja, String rata) {
         super(1000, null);
         
         this.pelaaja = pelaaja;
@@ -33,12 +36,19 @@ public class Kiekkopeli extends Timer implements ActionListener {
         this.jatkuu = true;
         this.liianlujaa = false;
         this.kiekko = this.pelaaja.getKiekko("draiveri");
-        this.kori = new Kori(leveys / 2, 0);
         this.heitto = pelaaja.getHeitto();
+        
+        this.rata = new Radat(leveys, korkeus).getRadat().get(rata);
+        this.kori = this.rata.getVaylat().get(4).getKori();
+        
         
         addActionListener(this);
         setInitialDelay(1000);
         
+    }
+
+    public String getRata() {
+        return this.rata.getNimi();
     }
     
     public Pelaaja getPelaaja() {
