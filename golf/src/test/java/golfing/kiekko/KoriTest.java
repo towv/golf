@@ -34,7 +34,7 @@ public class KoriTest {
     public void koriTest() {
         Kori kori = new Kori(0, 0);
         assertTrue(kori.osuu(kori));
-        assertFalse(kori.osuu(new Sijainti(1, 0)));
+        assertFalse(kori.osuu(new Sijainti(2, 0)));
         kori.setX(5);
         assertEquals(kori.getX(), 5);
         assertEquals(kori.getY(), 0);
