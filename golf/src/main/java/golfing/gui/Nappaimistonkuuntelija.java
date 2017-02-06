@@ -1,16 +1,19 @@
 package golfing.gui;
 
 import golfing.kiekko.Heitto;
-import golfing.kiekko.Kiekko;
+import golfing.kiekko.Pelaaja;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JLabel;
 
 public class Nappaimistonkuuntelija implements KeyListener {
     
+    private Pelaaja pelaaja;
     private Heitto heitto;
     
-    public Nappaimistonkuuntelija(Heitto heitto) {
-        this.heitto = heitto;
+    public Nappaimistonkuuntelija(Pelaaja pelaaja) {
+        this.pelaaja = pelaaja;
+        this.heitto = this.pelaaja.getHeitto();
     }
     
     @Override
@@ -39,6 +42,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
             if (heitto.getKerroin() == 0) {
                 heitto.setKerroin(1);
             }
+            pelaaja.lisaaHeitto();
             heitto.setTiiaus(true);
         }
         

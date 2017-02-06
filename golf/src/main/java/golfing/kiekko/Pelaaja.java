@@ -8,12 +8,14 @@ public class Pelaaja {
     private HashMap<String, Kiekko> kiekot;
     private Sijainti sijainti;
     private int heitot;
+    private Heitto heitto;
 
     public Pelaaja(String nimi, int leveys, int korkeus) {
         this.nimi = nimi;
         this.kiekot = new HashMap<>();
         this.sijainti = new Sijainti(leveys / 2, korkeus - 1);
         this.heitot = 0;
+        this.heitto = new Heitto(0, 0);
     }
 
     public void lisaaKiekko() {
@@ -35,7 +37,9 @@ public class Pelaaja {
     public String getNimi() {
         return nimi;
     }
-    
-    
+
+    public Heitto getHeitto() {
+        return heitto;
+    }
 
 }

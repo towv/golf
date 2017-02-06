@@ -11,7 +11,7 @@ public class Main {
         int leveys = 20;
         int korkeus = 20;
         
-        Pelaaja pelaaja = new Pelaaja("nimi", leveys, korkeus);
+        Pelaaja pelaaja = new Pelaaja("Super-Pelaaja", leveys, korkeus);
         
         pelaaja.lisaaKiekko();
 

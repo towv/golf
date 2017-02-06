@@ -11,83 +11,106 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public class Kiekkopeli extends Timer implements ActionListener {
-
+    
     private int leveys;
     private int korkeus;
     private boolean jatkuu;
+    private boolean liianlujaa;
     private Paivitettava paivitettava;
     private Pelaaja pelaaja;
     private Kiekko kiekko;
     private Kori kori;
     private Heitto heitto;
-    private boolean apukyrpa;
-
+    private String tilanne;
+    private String viesti;
+    
     public Kiekkopeli(int leveys, int korkeus, Pelaaja pelaaja) {
         super(1000, null);
-
+        
         this.pelaaja = pelaaja;
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.jatkuu = true;
+        this.liianlujaa = false;
         this.kiekko = this.pelaaja.getKiekko("draiveri");
         this.kori = new Kori(leveys / 2, 0);
-        this.heitto = new Heitto(0, 0);
-
+        this.heitto = pelaaja.getHeitto();
+        
         addActionListener(this);
         setInitialDelay(1000);
-
+        
     }
-
+    
+    public Pelaaja getPelaaja() {
+        return pelaaja;
+    }
+    
     public Heitto getHeitto() {
         return heitto;
     }
-
+    
     public Kiekko getKiekko() {
         return kiekko;
     }
-
+    
     public void setKiekko(Kiekko kiekko) {
         this.kiekko = kiekko;
     }
-
+    
     public Kori getKori() {
         return kori;
     }
-
+    
     public void setKori(Kori kori) {
         this.kori = kori;
     }
-
+    
     public boolean jatkuu() {
         return jatkuu;
     }
-
+    
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
-
+    
     public int getKorkeus() {
         return korkeus;
     }
-
+    
     public int getLeveys() {
         return leveys;
     }
-
+    
+    public String getTilanne() {
+        return "Heittoja: " + pelaaja.montakoHeittoa();
+    }
+    
+    public String getViesti() {
+        if (this.pelaaja.montakoHeittoa() == 0) {
+            return "Tervehdys " + pelaaja.getNimi() + "! (:\nVaro puuta!";
+        } else if (!jatkuu && !liianlujaa) {
+            return "KORISSA! \nSelvitit väylän " + pelaaja.montakoHeittoa() + " heitolla.";
+        } else if (!jatkuu && liianlujaa) {
+            return "Kiekko tippui korista! \nJoudutaan heittämään vielä kerran...";
+        } else {
+            return " \n ";
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (!jatkuu) {
+        if (!jatkuu && !liianlujaa) {
             return;
         }
-
-        if (heitto.getVoima() == 1) {
-            if (heitto.getVoima() == 0) {
-                pelaaja.lisaaHeitto();
-                System.out.println("Olet nyt heittänyt " + pelaaja.montakoHeittoa() + " kertaa.");
-            }
+        
+        if (!jatkuu) {
+            try {
+                Thread.sleep(2000);
+            } catch (Exception b) {
+            };
+            this.liianlujaa = false;
         }
-
+        
         if (heitto.getTiiaus()) {
 
 //            if (heitto.getSuunta() != 0) {
@@ -104,29 +127,27 @@ public class Kiekkopeli extends Timer implements ActionListener {
 
             kiekko.liiku(Suunta.YLOS);
             heitto.vahennaVoimaa();
-
-            if (kiekko.getSijainti().osuu(kori)) {
+            
+            if (kori.osuu(kiekko.getSijainti())) {
+                
                 if (heitto.getVoima() > 3) {
-                    System.out.println("Kiekko tippui korista");
-                    System.out.println("Joudutaan heittämään vielä kerran..");
-                    System.out.println();
                     pelaaja.lisaaHeitto();
-
+                    heitto.setVoima(1);
+                    this.liianlujaa = true;
                 }
-                System.out.println("KORISSA");
-                System.out.println("Selvitit väylän " + pelaaja.montakoHeittoa() + " heitolla.");
+                
                 jatkuu = false;
             }
         }
-
+        
         if (heitto.getVoima() == 0) {
             heitto.setKerroin(0);
             heitto.setTiiaus(false);
         }
-
+        
         paivitettava.paivita();
-        setDelay(500);
-
+        setDelay(300);
+        
     }
-
+    
 }

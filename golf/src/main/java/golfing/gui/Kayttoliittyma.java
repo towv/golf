@@ -2,9 +2,12 @@ package golfing.gui;
 
 import golfing.kiekko.Vari;
 import golfing.peli.Kiekkopeli;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 public class Kayttoliittyma implements Runnable {
@@ -38,10 +41,19 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
+        
+//        BorderLayout layout = new BorderLayout(2, 2);
+//        
+//        container.setLayout(layout);
+        
         piirtoalusta = new Piirtoalusta(kike, pituus);
         container.add(piirtoalusta);
+        kike.setPaivitettava(piirtoalusta);
+        
+//        JLabel tekstikentta = new JLabel("Moi " + kike.getPelaaja().getNimi());
+//        container.add(tekstikentta, BorderLayout.SOUTH);
 
-        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getHeitto());
+        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getPelaaja());
         frame.addKeyListener(kuuntelija);
     }
 

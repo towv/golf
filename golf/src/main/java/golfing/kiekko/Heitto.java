@@ -21,6 +21,10 @@ public class Heitto {
         this.tiiaus = false;
     }
 
+    public void setVoima(int voima) {
+        this.voima = voima;
+    }
+
     public int getVoima() {
         return voima;
     }

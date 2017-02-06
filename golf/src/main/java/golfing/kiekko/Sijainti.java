@@ -27,20 +27,7 @@ public class Sijainti {
     }
 
     public boolean osuu(Sijainti sijainti) {
-//        return sijainti.getX() == getX() && sijainti.getY() == getY();
-        if (sijainti.getX() == getX() && sijainti.getY() == getY()) {
-            return true;
-        }
-        if (sijainti.getX() + 1 == getX() && sijainti.getY() == getY()) {
-            return true;
-        }
-        if (sijainti.getX() == getX() && sijainti.getY() + 1 == getY()) {
-            return true;
-        }
-        if (sijainti.getX() + 1 == getX() && sijainti.getY() + 1 == getY()) {
-            return true;
-        }
-        return false;
+        return sijainti.getX() == getX() && sijainti.getY() == getY();
     }
 
     @Override
