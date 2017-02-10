@@ -11,6 +11,11 @@ public class Kori extends Sijainti {
     public Kori(int x, int y) {
         super(x, y);
     }
+    
+    /**
+     * Palauttaa true jos kiekko menee koriin
+     * @return boolean
+     */
 
     @Override
     public boolean osuu(Sijainti sijainti) {

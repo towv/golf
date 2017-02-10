@@ -13,15 +13,15 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 /**
- * Kiekkopeli on itse peli luokka. Se on yhteydessä käyttäjälle näkyvään ulkoasuun 
- * ja näppäimistönkuuntelijaan. Sillä on myös yhteys Ratoihin, jotta se tietää missä
- * kunkin väylän kori sijaitsee. Se tuntee pelaajan ja heiton.
- * 
- * Luokka on vastuussa kaikesta mitä pelissä tapahtuu ja käyttää muita luokkia 
+ * Kiekkopeli on itse peli luokka. Se on yhteydessä käyttäjälle näkyvään
+ * ulkoasuun ja näppäimistönkuuntelijaan. Sillä on myös yhteys Ratoihin, jotta
+ * se tietää missä kunkin väylän kori sijaitsee. Se tuntee pelaajan ja pelaajan
+ * kautta heiton.
+ *
+ * Luokka on vastuussa kaikesta mitä pelissä tapahtuu ja käyttää muita luokkia
  * apunaan tässä tehtävässä.
  *
  */
-
 public class Kiekkopeli extends Timer implements ActionListener {
 
     private int leveys;
@@ -56,42 +56,84 @@ public class Kiekkopeli extends Timer implements ActionListener {
 
     }
 
+    /**
+     * Palauttaa radan nimen
+     *
+     * @return Radan nimi
+     */
     public String getRata() {
         return this.rata.getNimi();
     }
 
+    /**
+     * Palauttaa pelaajan
+     *
+     * @return Pelaaja-olio
+     */
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
 
+    /**
+     * Palauttaa heiton
+     *
+     * @return Heitto-olio
+     */
     public Heitto getHeitto() {
         return heitto;
     }
 
+    /**
+     * Palauttaa kiekon joka on käytössä
+     *
+     * @return Kiekko -olio
+     */
     public Kiekko getKiekko() {
         return kiekko;
     }
 
+    /**
+     * Asettaa käytettävän kiekon
+     *
+     */
     public void setKiekko(Kiekko kiekko) {
         this.kiekko = kiekko;
     }
 
+    /**
+     * Palauttaa pelattavan korin
+     *
+     * @return kori-olio
+     */
     public Kori getKori() {
         return kori;
     }
 
+    /**
+     * Asettaa korin pelattavaksi
+     */
     public void setKori(Kori kori) {
         this.kori = kori;
     }
 
+    /**
+     * Kertoo pelin, tilanteen, kun jatkuu = false ei enää heitetä
+     * @return boolean jatkuu
+     */
     public boolean jatkuu() {
         return jatkuu;
     }
 
+    /**
+     * Asettaa boolean jatkuu
+     * 
+     */
     public void setJatkuu(boolean jatkuu) {
         this.jatkuu = jatkuu;
     }
-
+/**
+     * Jos kiekko osuu koriin liian lujaa tulee boolean-liianlujaa arvoksi true 
+     */
     public void setLiianlujaa(boolean liianlujaa) {
         this.liianlujaa = liianlujaa;
     }
@@ -107,11 +149,20 @@ public class Kiekkopeli extends Timer implements ActionListener {
     public int getLeveys() {
         return leveys;
     }
-
+/**
+     * Palauttaa merkkijonona sen hetkisen käytettyjen heittojen määrän
+     * @return String "Heittoja: 'kokonaisluku'"
+     */
     public String getTilanne() {
         return "Heittoja: " + pelaaja.montakoHeittoa();
     }
 
+    /**
+     * Palauttaa viestin.
+     * Alussa viesti on tervehdys pelaajalle.
+     * Jos kiekko osuu liian suurella voimalla koriin viestitetään tästä.
+     * Lopuksi viestitetään kiekon olevan korissa ja heittojenmäärä joka kului.
+     */
     public String getViesti() {
         if (this.pelaaja.montakoHeittoa() == 0) {
             return "Tervehdys " + pelaaja.getNimi() + "! (:\nVaro puuta!";
@@ -124,6 +175,14 @@ public class Kiekkopeli extends Timer implements ActionListener {
         }
     }
 
+    /**
+     * Muuttaa pelin tilannetta.
+     * Käskee myös paivitettavaa päivittämään tilanne ruudulle.
+     * Jos heitto on lähetetty kulkee se niin kauan kuin sillä on voimaa, tai 
+     * kunnes se osuu korii.
+     * Koriin osuessa tarkistetaan jäljellä oleva voima.
+     * Kiekon suunta riippuu annetusta suuntavoimasta.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!jatkuu && !liianlujaa) {

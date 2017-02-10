@@ -75,6 +75,9 @@ public class Kiekko {
         return vari;
     }
     
+    /**
+     * Hoitaa kiekon liikkeen.
+     */
     public void liiku(Suunta suunta) {
         if (suunta == suunta.YLOS) {
             this.sijainti.setY(this.sijainti.getY() - 1);
