@@ -50,7 +50,9 @@
                 <configuration>
                     <targetClasses>
                         <param>golfing.kiekko.*</param>
-
+                        <param>golfing.rata.Vayla</param>
+                        <param>golfing.rata.Rata</param>
+                        <param>golfing.peli.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>golfing.*</param>

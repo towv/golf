@@ -1,5 +1,11 @@
 package golfing.kiekko;
 
+/**
+ * Kiekko -luokka kuvastaa heitettävää kiekkoa. Kiekolla on erinäisiä ominaisuuksia,
+ * tällä hetkellä tärkeimpänä sillä on Sijainti. Sillä on myös Väri.
+ *
+ */
+
 public class Kiekko {
     
     private String nimi;
@@ -36,7 +42,7 @@ public class Kiekko {
     }
     
     public void setNopeus(int nopeus) {
-        if (nopeus < 0) {
+        if (nopeus <= 0) {
             return;
         }
         this.nopeus = nopeus;

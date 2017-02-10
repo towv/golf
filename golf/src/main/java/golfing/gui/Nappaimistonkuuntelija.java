@@ -6,6 +6,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JLabel;
 
+/**
+ * Kiekkopelisovelluksen näppäimistönkuuntelija.
+ *
+ */
+
 public class Nappaimistonkuuntelija implements KeyListener {
     
     private Pelaaja pelaaja;

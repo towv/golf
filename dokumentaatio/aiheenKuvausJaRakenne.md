@@ -13,4 +13,6 @@ Käytetään näppäimistöllä.
 
 **Kaikkien käyttäjien toiminnot:** Pelaajatunnuksen luominen, frisbeen heittäminen
 
-**Kaaviot:** ![Määrittelyvaiheen luokkakaavio](Kaaviot/luokkakaavio_tuleva.jpg)
+**Kaaviot:** ![Luokkakaavio](Kaaviot/luokkakaavio.png)
+
+Huomaa kommentit kaaviossa. Kansiosta löytyy myös kuvana tämänhetkinen tilanne, sekä tulevan hahmotelma. En nyt kerennyt näitä koneella tekemään, eikä se olisi mielekästä kun projekti kehittyy kokoajan.

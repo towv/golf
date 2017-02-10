@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+ * Kiekkopelisovelluksen graafinen käyttöliittymä.
+ *
+ */
+
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;

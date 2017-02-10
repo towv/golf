@@ -84,6 +84,14 @@ public class HeittoTest {
     }
 
     @Test
+    public void vahennaSuuntaaTesti() {
+        Heitto heitto = new Heitto(3, 3);
+        heitto.vahennaSuuntaa();
+        heitto.vahennaSuuntaa();
+        assertEquals(heitto.getSuunta(), 1);
+    }
+
+    @Test
     public void vahennaVoimaaToimii() {
         Heitto heitto = new Heitto(0, 0);
         heitto.kasvataVoimaa();
@@ -102,4 +110,19 @@ public class HeittoTest {
         heitto.vahennaVoimaa();
         assertEquals(heitto.getVoima(), 0);
     }
+    
+    @Test
+    public void kerroinTesti() {
+        Heitto heitto = new Heitto(0, 0);
+        heitto.setKerroin(10);
+        assertEquals(heitto.getKerroin(), 10);
+    }
+    
+    @Test
+    public void asetaVoimaTesti() {
+        Heitto heitto = new Heitto(0, 0);
+        heitto.setVoima(10);
+        assertEquals(heitto.getVoima(), 10);
+    }
+
 }

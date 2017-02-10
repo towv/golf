@@ -5,7 +5,6 @@ package golfing.kiekko;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import golfing.kiekko.Kiekko;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -70,6 +69,22 @@ public class KiekkoTest {
     }
     
     @Test
+    public void liikuVasenTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        assertEquals(kiekko.getSijainti().toString(), "22");
+        kiekko.liiku(Suunta.VASEN);
+        assertEquals(kiekko.getSijainti().toString(), "12");
+    }
+    
+    @Test
+    public void liikuOikeaanTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        assertEquals(kiekko.getSijainti().toString(), "22");
+        kiekko.liiku(Suunta.OIKEA);
+        assertEquals(kiekko.getSijainti().toString(), "32");
+    }
+    
+    @Test
     public void liitoTesti() {
         Kiekko kiekko = new Kiekko("nimi", 0, 0);
         assertEquals(kiekko.getLiito(), 5);
@@ -97,6 +112,13 @@ public class KiekkoTest {
     }
     
     @Test
+    public void nopeusNolla() {
+        Kiekko kiekko = new Kiekko("Ville");
+        kiekko.setNopeus(0);
+        assertEquals(kiekko.getNopeus(), 5);
+    }
+    
+    @Test
     public void loppufeidiTesti() {
         Kiekko kiekko = new Kiekko("Fede");
         assertEquals(kiekko.getLoppufeidi(), 0);
@@ -110,6 +132,12 @@ public class KiekkoTest {
         assertEquals(kiekko.getNopeus(), 5);
         kiekko.setNopeus(13);
         assertEquals(kiekko.getNopeus(), 13);
+    }
+    
+    @Test
+    public void variTesti() {
+        Kiekko keikko = new Kiekko("Liila");
+        assertEquals(keikko.getVari(), Vari.LIILA);
     }
 
     // TODO add test methods here.

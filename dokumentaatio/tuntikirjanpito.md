@@ -14,4 +14,7 @@ Päivä | Tunnit | Kuvaus
 02.02.2017 | 1.0h | Luokkien muokkausta, pitää miettiä uudestaan
 03.02.2017 | 5.0h | Yritys koodata, pitää vielä miettiä miten kiekon heittäminen toteutuu parhaiten, en päivittänyt kaikkia testejä kun luokat ovat hieman muutospaineessa, mutta mm. pelaaja luokalle lisätty testejä
 04.02.2017 | 3.0h | Ulkoasun muokkausta kuulemma liian tylsän näköinen
+05.02.2017 | 2.0h | Selvitystyötä repaintin toiminnasta
 06.02.2017 | 3.0h | Heittojen lasku näkyviin, viestit käyttäjälle näkyviin, muuta korjailua
+08.02.2017 | 1.0h | Suunnittelua
+10.02.2017 | 9.0h | Testien kirjoitusta, javadoc aloitus, luokkakaavio uusiksi koneella. Paljon aikaa meni, sovellus ei edennyt kun aika meni välivaiheen dokumentoimiseen..

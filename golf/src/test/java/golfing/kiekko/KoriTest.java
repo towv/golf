@@ -39,4 +39,13 @@ public class KoriTest {
         assertEquals(kori.getX(), 5);
         assertEquals(kori.getY(), 0);
     }
+    
+    @Test
+    public void kokoKoriOsumaAluettaTesti() {
+        Kori kori = new Kori(1, 1);
+        assertTrue(kori.osuu(new Sijainti(1, 2)));
+        assertTrue(kori.osuu(new Sijainti(2, 2)));
+        assertTrue(kori.osuu(new Sijainti(2, 1)));
+        assertFalse(kori.osuu(new Sijainti(0, 0)));
+    }
 }

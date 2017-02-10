@@ -1,5 +1,14 @@
 package golfing.kiekko;
 
+/**
+ * Sijainti luokka on apuluokka. Pelaajalla, Korilla ja Kiekolla on kaikilla 
+ * sijainnit. Kori tosin perii sijainnin, muilla on sijainti olio. Harkitsen perintää.
+ * 
+ * Sijainti on tärkeä, jotta kiekko voidaan löytää kartalta ja kaikki elementit 
+ * piirtää oikeisiin paikkoihin.
+ *
+ */
+
 public class Sijainti {
 
     private int x;

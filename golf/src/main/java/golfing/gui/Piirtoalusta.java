@@ -7,6 +7,11 @@ import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+/**
+ * Kiekkopelisovelluksen piirtäjä. Toteuttaa paivitettava rajapinnan.
+ *
+ */
+
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Kiekkopeli kiekkopeli;

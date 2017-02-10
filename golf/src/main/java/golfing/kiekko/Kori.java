@@ -1,5 +1,11 @@
 package golfing.kiekko;
 
+/**
+ * Kori luokka perii Sijainnin. 
+ * Siihen osuminen on ylikirjoitettu laajemmaksi alueeksi.
+ *
+ */
+
 public class Kori extends Sijainti {
 
     public Kori(int x, int y) {
