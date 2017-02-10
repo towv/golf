@@ -12,7 +12,7 @@ Yksinkertainen frisbeegolf-peli.
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/checkstyle.html)
+[Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/site/checkstyle.html)
 
 Checkstyle FileLength Error aiheutui javadocista, /Dokumentaatio/Checkstyle-raportit löytyy vielä raportti, jossa vähemmän javadoccia ja pituus alle 200.
 
