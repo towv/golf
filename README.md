@@ -8,7 +8,7 @@ Yksinkertainen frisbeegolf-peli.
 ###Dokumentaatio
 [Aiheen kuvaus ja rakenne](dokumentaatio/aiheenKuvausJaRakenne.md)
 
-[Käyttöohjeet](dokumentaatio/käyttöohjeet.md)
+[Käyttöohjeet](dokumentaatio/kayttoohjeet.md)
 
 [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
