@@ -9,6 +9,7 @@ import golfing.gui.Paivitettava;
 import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;
 import golfing.kiekko.Pelaaja;
+import golfing.kiekko.Suunta;
 import golfing.rata.Radat;
 import java.awt.event.ActionEvent;
 import org.junit.After;
@@ -39,10 +40,7 @@ public class KiekkopeliTest {
 
     @Before
     public void setUp() {
-        Pelaaja pelaaja = new Pelaaja("Super-Pelaaja", 20, 20);
-        pelaaja.lisaaKiekko();
-        this.kiekkopeli = new Kiekkopeli(20, 20, pelaaja,
-                "Kumpula", new Radat(20, 20));
+        this.kiekkopeli = new Kiekkopeli(20, 20);
     }
 
     @After
@@ -98,7 +96,7 @@ public class KiekkopeliTest {
 
     @Test
     public void tilanneAlussaOikeinTesti() {
-        assertEquals(kiekkopeli.getTilanne(), "Heittoja: 0");
+        assertEquals(kiekkopeli.getTilanne(), "Väylä:1 | Par: 2 | Heittoja: 0");
     }
 
     @Test
@@ -141,6 +139,45 @@ public class KiekkopeliTest {
         ActionEvent e = new ActionEvent(kiekkopeli, 0, "peli");
         kiekkopeli.actionPerformed(e);
         assertFalse(kiekkopeli.jatkuu());
+    }
+    
+    @Test
+    public void getRadatTesti() {
+        assertEquals(kiekkopeli.getRadat().getRadat().size(), 1);      
+    }
+    
+    @Test
+    public void setPelaajaTesti() {
+        kiekkopeli.setPelaaja(new Pelaaja("sami", 0, 0));
+        assertEquals(kiekkopeli.getPelaaja().getNimi(), "sami");
+    }
+    
+    @Test
+    public void setRata() {
+        kiekkopeli.setRata("Kumpula");
+        assertEquals(kiekkopeli.getRata(), "Kumpulan frisbeegolfrata");
+        assertEquals(kiekkopeli.getKori().toString(), "104");
+    }
+    
+    @Test
+    public void vaihdaVaylaaTesti() {
+        kiekkopeli.getPelaaja().lisaaHeitto();
+        kiekkopeli.getKiekko().liiku(Suunta.SOUTH);
+        kiekkopeli.vaihdaVaylaa();
+        assertEquals(kiekkopeli.getKori().toString(), "1010");
+        assertEquals(kiekkopeli.getKiekko().getSijainti().toString(), "1017");
+        assertEquals(kiekkopeli.getPelaaja().montakoHeittoa(), 0);
+        kiekkopeli.vaihdaVaylaa();
+        kiekkopeli.vaihdaVaylaa();
+        kiekkopeli.vaihdaVaylaa();
+        kiekkopeli.vaihdaVaylaa();
+        kiekkopeli.vaihdaVaylaa();
+        assertEquals(kiekkopeli.getKori().toString(), "104");        
+    }
+    
+    @Test
+    public void getTuloskorttiTesti() {
+        assertEquals(kiekkopeli.getTuloskortti().getTulosRata(), "Kumpulan frisbeegolfrata");
     }
 
 }

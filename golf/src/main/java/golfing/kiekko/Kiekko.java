@@ -20,7 +20,7 @@ public class Kiekko {
         this.liito = 5;
         this.nopeus = 5;
         this.loppufeidi = 0;
-        this.vari = vari.LIILA;
+        this.vari = Vari.LIILA;
         this.sijainti = new Sijainti(10, 10);
     }
     
@@ -29,8 +29,12 @@ public class Kiekko {
         this.liito = 5;
         this.nopeus = 5;
         this.loppufeidi = 0;
-        this.vari = vari.LIILA;
+        this.vari = Vari.LIILA;
         this.sijainti = new Sijainti(xalussa, yalussa);
+    }
+
+    public void setSijainti(Sijainti sijainti) {
+        this.sijainti = sijainti;
     }
     
     public Sijainti getSijainti() {
@@ -79,12 +83,26 @@ public class Kiekko {
      * Hoitaa kiekon liikkeen.
      */
     public void liiku(Suunta suunta) {
-        if (suunta == suunta.YLOS) {
+        if (suunta == Suunta.NORTH) {
             this.sijainti.setY(this.sijainti.getY() - 1);
-        } else if (suunta == suunta.VASEN) {
-            this.sijainti.setX(this.sijainti.getX() - 1);
-        } else if (suunta == suunta.OIKEA) {
+        } else if (suunta == Suunta.EAST) {
             this.sijainti.setX(this.sijainti.getX() + 1);
+        } else if (suunta == Suunta.WEST) {
+            this.sijainti.setX(this.sijainti.getX() - 1);
+        } else if (suunta == Suunta.SOUTH) {
+            this.sijainti.setY(this.sijainti.getY() + 1);
+        } else if (suunta == Suunta.NORTHEAST) {
+            this.sijainti.setY(this.sijainti.getY() - 1);
+            this.sijainti.setX(this.sijainti.getX() + 1);
+        } else if (suunta == Suunta.NORTHWEST) {
+            this.sijainti.setY(this.sijainti.getY() - 1);
+            this.sijainti.setX(this.sijainti.getX() - 1);
+        } else if (suunta == Suunta.SOUTHEAST) {
+            this.sijainti.setY(this.sijainti.getY() + 1);
+            this.sijainti.setX(this.sijainti.getX() + 1);
+        } else if (suunta == Suunta.SOUTHWEST) {
+            this.sijainti.setY(this.sijainti.getY() + 1);
+            this.sijainti.setX(this.sijainti.getX() - 1);
         }
         
     }

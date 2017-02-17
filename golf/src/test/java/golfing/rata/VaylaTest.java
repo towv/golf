@@ -40,7 +40,8 @@ public class VaylaTest {
 
     @Test
     public void vaylaTesti() {
-        Vayla vayla = new Vayla(new Kori(0, 0));
+        Vayla vayla = new Vayla(new Kori(0, 0), 3);
         assertEquals(vayla.getKori().toString(), "00");
+        assertEquals(vayla.getPar(), 3);
     }
 }

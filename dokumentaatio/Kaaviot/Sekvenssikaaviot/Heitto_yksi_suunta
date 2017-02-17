@@ -1,0 +1,25 @@
+title Heittäminen, yksi suunta
+
+Nappaimistonkuuntelija->Pelaaja: getHeitto()
+Pelaaja-->Nappaimistonkuuntelija: heitto
+alt kasvata voimaa
+Nappaimistonkuuntelija->Nappaimistonkuuntelija: getKeyCode()
+Nappaimistonkuuntelija-->Nappaimistonkuuntelija: VK_SPACE
+Nappaimistonkuuntelija->Heitto: kasvataVoimaa()
+Heitto->Heitto: this.voima++
+else syötä suunta
+Nappaimistonkuuntelija->Nappaimistonkuuntelija: getKeyCode()
+Nappaimistonkuuntelija-->Nappaimistonkuuntelija: VK_UP
+Nappaimistonkuuntelija->Heitto: syotaSuunta(Suunta.NORTH)
+Heitto->Heitto: List<Suunta> syotetytSuunnat.add(suunta)
+else vahvista heitto ja tiiaa
+Nappaimistonkuuntelija->Nappaimistonkuuntelija: getKeyCode()
+Nappaimistonkuuntelija-->Nappaimistonkuuntelija: VK_ENTER
+Nappaimistonkuuntelija->Heitto: vahvistaHeitto()
+end
+Heitto->Heitto: this.suunta = syotetytSuunnat.get(0)
+Heitto->Heitto: puolitaHeitonVoima() -> this.voima=this.voima/2
+Nappaimistonkuuntelija->Pelaaja: lisaaHeitto()
+Pelaaja->Pelaaja: heitot++
+Nappaimistonkuuntelija->Heitto: setTiiaus(Boolean true)
+Heitto->Heitto: this.tiiaus = true

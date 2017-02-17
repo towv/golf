@@ -58,7 +58,7 @@ public class PelaajaTest {
     @Test
     public void getHeittoTest() {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
-        assertEquals(pelaaja.getHeitto().toString(), "00false");
+        assertEquals(pelaaja.getHeitto().toString(), "0nullfalse");
     }
     
     @Test
@@ -71,13 +71,30 @@ public class PelaajaTest {
     @Test
     public void haePelaajanSijaintiPalauttaaOikeinALussa() {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
-        assertEquals(pelaaja.getSijainti().toString(), "0-1");
+        assertEquals(pelaaja.getSijainti().toString(), "0-3");
     }
     
     @Test
     public void haePelaajanSijainti() {
         Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);
-        assertEquals(pelaaja.getSijainti().toString(), "1019");
+        assertEquals(pelaaja.getSijainti().toString(), "1017");
+    }
+    
+    @Test
+    public void asetaNimiTesti() {
+        Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);
+        assertEquals(pelaaja.getNimi(), "nimi");
+        pelaaja.setNimi("Super-Pelaaja");
+        assertEquals(pelaaja.getNimi(), "Super-Pelaaja");
+    }
+    
+    @Test
+    public void nollaaHeitotTesti() {
+        Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);
+        pelaaja.lisaaHeitto();
+        assertEquals(pelaaja.montakoHeittoa(), 1);
+        pelaaja.nollaaHeitot();
+        assertEquals(pelaaja.montakoHeittoa(), 0);
     }
 
 }

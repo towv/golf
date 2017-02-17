@@ -18,3 +18,9 @@ Päivä | Tunnit | Kuvaus
 06.02.2017 | 3.0h | Heittojen lasku näkyviin, viestit käyttäjälle näkyviin, muuta korjailua
 08.02.2017 | 1.0h | Suunnittelua
 10.02.2017 | 9.0h | Testien kirjoitusta, javadoc aloitus, luokkakaavio uusiksi koneella. Paljon aikaa meni, sovellus ei edennyt kun aika meni välivaiheen dokumentoimiseen..
+11.02.2017 | 3.0h | Selvitystä gui
+12.02.2017 | 3.0h | Valikon koodausta
+13.02.2017 | 2.0h | Sekvenssikaaviot
+14.02.2017 | 5.0h | Testejä ja koodia
+16.02.2017 | 5.0h | Tuloskortti, väylän vaihto, käyttäjän nimi jne. koodit
+17.02.2017 | 4.0h | Luokkakaavion päivitys, testejä, javadoc

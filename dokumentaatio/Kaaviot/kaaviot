@@ -1,0 +1,19 @@
+%2F%2F Cool Class Diagram, 
+[Main]-[Kayttoliittyma]
+[Main]-[Kiekkopeli]
+[Nappaimistonkuuntelija]1-1[Kayttoliittyma]
+[<<interface>>Paivitettava]1-1[Kayttoliittyma]
+[Piirtoalusta]1-1[Kayttoliittyma]
+[Piirtoalusta]implements->[<<interface>>Paivitettava]
+[Kiekkopeli|-forname:string;surname:string|doShiz()]1-orders*>[Pelaaja], 
+[Kiekkopeli]*-*[Radat], 
+[Pelaaja]++-0..*>[Heitto], 
+[Pelaaja]-[Kiekko]
+[Pelaaja]1->1[Sijainti]
+[Heitto]1->[<<enumeration>>Suunta]
+[Kiekko]1->[Sijainti]
+[Kiekko]-[<<enumeration>> Vari]
+[Radat]<>->[Rata]
+[Rata]1-*[Vayla]
+[Vayla]1-1[Kori]
+[Kori]extends->[Sijainti]

@@ -10,12 +10,18 @@ import golfing.kiekko.Kori;
 
 public class Vayla {
     private Kori kori;
+    private int par;
 
-    public Vayla(Kori kori) {
+    public Vayla(Kori kori, Integer par) {
         this.kori = kori;
+        this.par = par;
     }
 
     public Kori getKori() {
         return kori;
-    }    
+    }
+
+    public int getPar() {
+        return par;
+    }
 }

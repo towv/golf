@@ -23,12 +23,12 @@ public class Radat {
         this.radat = new HashMap<>();
 
         Rata kumpula = new Rata("Kumpulan frisbeegolfrata");
-        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 2, 0)));
-        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 2, korkeus / leveys)));
-        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 3, 1)));
-        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 4) * 3, 2)));
-        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 8) * 1, 2)));
-        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 4) * 3, korkeus / 2)));
+        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 2, 4), 2));
+        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 2, korkeus / 2), 1));
+        kumpula.lisaaVayla(new Vayla(new Kori(leveys / 3, 1), 3));
+        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 4) * 3, 2), 3));
+        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 8) * 1, 2), 3));
+        kumpula.lisaaVayla(new Vayla(new Kori((leveys / 4) * 3, korkeus / 2), 2));
         radat.put("Kumpula", kumpula);
     }
 

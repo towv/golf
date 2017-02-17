@@ -64,7 +64,7 @@ public class KiekkoTest {
     public void liikuMetodinTestaus() {
         Kiekko kiekko = new Kiekko("nimi", 0, 1);
         assertEquals(kiekko.getSijainti().toString(), "01");
-        kiekko.liiku(Suunta.YLOS);
+        kiekko.liiku(Suunta.NORTH);
         assertEquals(kiekko.getSijainti().toString(), "00");
     }
     
@@ -72,7 +72,7 @@ public class KiekkoTest {
     public void liikuVasenTesti() {
         Kiekko kiekko = new Kiekko("nimi", 2, 2);
         assertEquals(kiekko.getSijainti().toString(), "22");
-        kiekko.liiku(Suunta.VASEN);
+        kiekko.liiku(Suunta.WEST);
         assertEquals(kiekko.getSijainti().toString(), "12");
     }
     
@@ -80,8 +80,43 @@ public class KiekkoTest {
     public void liikuOikeaanTesti() {
         Kiekko kiekko = new Kiekko("nimi", 2, 2);
         assertEquals(kiekko.getSijainti().toString(), "22");
-        kiekko.liiku(Suunta.OIKEA);
+        kiekko.liiku(Suunta.EAST);
         assertEquals(kiekko.getSijainti().toString(), "32");
+    }
+    
+    @Test
+    public void liikuSouthTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        kiekko.liiku(Suunta.SOUTH);
+        assertEquals(kiekko.getSijainti().toString(), "23");
+    }
+    
+    @Test
+    public void liikuNorthEastTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        kiekko.liiku(Suunta.NORTHEAST);
+        assertEquals(kiekko.getSijainti().toString(), "31");
+    }
+    
+    @Test
+    public void liikuNorthWestTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        kiekko.liiku(Suunta.NORTHWEST);
+        assertEquals(kiekko.getSijainti().toString(), "11");
+    }
+    
+    @Test
+    public void liikuSouthEastTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        kiekko.liiku(Suunta.SOUTHEAST);
+        assertEquals(kiekko.getSijainti().toString(), "33");
+    }
+    
+    @Test
+    public void liikuSouthWestTesti() {
+        Kiekko kiekko = new Kiekko("nimi", 2, 2);
+        kiekko.liiku(Suunta.SOUTHWEST);
+        assertEquals(kiekko.getSijainti().toString(), "13");
     }
     
     @Test
@@ -138,6 +173,13 @@ public class KiekkoTest {
     public void variTesti() {
         Kiekko keikko = new Kiekko("Liila");
         assertEquals(keikko.getVari(), Vari.LIILA);
+    }
+    
+    @Test
+    public void asetaSijainti() {
+        Kiekko keikko = new Kiekko("Liila");
+        keikko.setSijainti(new Sijainti(10, 10));
+        assertEquals(keikko.getSijainti().toString(), "1010");
     }
 
     // TODO add test methods here.

@@ -22,9 +22,9 @@ public class Pelaaja {
     public Pelaaja(String nimi, int leveys, int korkeus) {
         this.nimi = nimi;
         this.kiekot = new HashMap<>();
-        this.sijainti = new Sijainti(leveys / 2, korkeus - 1);
+        this.sijainti = new Sijainti(leveys / 2, korkeus - 3);
         this.heitot = 0;
-        this.heitto = new Heitto(0, 0);
+        this.heitto = new Heitto(0);
     }
 
     public void lisaaKiekko() {
@@ -42,13 +42,25 @@ public class Pelaaja {
     public int montakoHeittoa() {
         return heitot;
     }
+    
+    public void nollaaHeitot() {
+        heitot = 0;
+    }
 
     public String getNimi() {
         return nimi;
     }
 
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+    }
+
     public Heitto getHeitto() {
         return heitto;
+    }
+
+    public void setHeitto(Heitto heitto) {
+        this.heitto = heitto;
     }
 
     public Vari getKaytossaOlevanKiekonVari() {

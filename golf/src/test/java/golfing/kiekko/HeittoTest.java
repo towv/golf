@@ -30,35 +30,35 @@ public class HeittoTest {
 
     @Test
     public void uusiHeittoVoimaOikein() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         assertEquals(heitto.getVoima(), 0);
 
     }
 
     @Test
     public void uusiHeittoSuuntaOikein() {
-        Heitto heitto = new Heitto(0, 0);
-        assertEquals(heitto.getSuunta(), 0);
+        Heitto heitto = new Heitto(0);
+        assertEquals(heitto.getSuunta(), null);
 
     }
 
     @Test
     public void uusiHeittoTiiausAlussaFalse() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         assertFalse(heitto.getTiiaus());
 
     }
 
     @Test
     public void setTiiausTrue() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         heitto.setTiiaus(true);
         assertTrue(heitto.getTiiaus());
     }
 
     @Test
     public void setTiiausFalse() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         assertFalse(heitto.getTiiaus());
         heitto.setTiiaus(true);
         assertTrue(heitto.getTiiaus());
@@ -68,32 +68,43 @@ public class HeittoTest {
 
     @Test
     public void kasvataVoimaaToimii() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         heitto.kasvataVoimaa();
         heitto.kasvataVoimaa();
         assertEquals(heitto.getVoima(), 2);
     }
 
     @Test
-    public void kasvataSuuntaaToimii() {
-        Heitto heitto = new Heitto(0, 0);
-        heitto.kasvataSuuntaa();
-        heitto.kasvataSuuntaa();
-        heitto.kasvataSuuntaa();
-        assertEquals(heitto.getSuunta(), 3);
+    public void asetaSuuntaToimiiTupla() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTH);
     }
 
     @Test
-    public void vahennaSuuntaaTesti() {
-        Heitto heitto = new Heitto(3, 3);
-        heitto.vahennaSuuntaa();
-        heitto.vahennaSuuntaa();
-        assertEquals(heitto.getSuunta(), 1);
+    public void asetaSuuntaToimiiYksiHeitonVoimaPuolittuu() {
+        Heitto heitto = new Heitto(10);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.EAST);
+        assertEquals(heitto.getVoima(), 5);
+    }
+
+    @Test
+    public void asetaKolmeSuuntaaLiikkuuKahdenMukaan() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTH);
     }
 
     @Test
     public void vahennaVoimaaToimii() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         heitto.kasvataVoimaa();
         heitto.kasvataVoimaa();
         assertEquals(heitto.getVoima(), 2);
@@ -105,24 +116,122 @@ public class HeittoTest {
 
     @Test
     public void voimaEiMeneNegatiiviseksi() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         heitto.vahennaVoimaa();
         heitto.vahennaVoimaa();
         assertEquals(heitto.getVoima(), 0);
     }
-    
-    @Test
-    public void kerroinTesti() {
-        Heitto heitto = new Heitto(0, 0);
-        heitto.setKerroin(10);
-        assertEquals(heitto.getKerroin(), 10);
-    }
-    
+
     @Test
     public void asetaVoimaTesti() {
-        Heitto heitto = new Heitto(0, 0);
+        Heitto heitto = new Heitto(0);
         heitto.setVoima(10);
         assertEquals(heitto.getVoima(), 10);
     }
 
+    @Test
+    public void suunnanAsetusTestiEriSuunnatSouthEast() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTHEAST);
+    }
+
+    @Test
+    public void suunnanAsetusTestiEriSuunnatSouthEast2() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTHEAST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatSouthWest() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.WEST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTHWEST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatSouthWest2() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.WEST);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTHWEST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatNorthEast() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.NORTH);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.NORTHEAST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatNorthEast2() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.syotaSuunta(Suunta.NORTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.NORTHEAST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatNorthWEST() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.NORTH);
+        heitto.syotaSuunta(Suunta.WEST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.NORTHWEST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiEriSuunnatNorthWEST2() {
+        Heitto heitto = new Heitto(0);
+        heitto.syotaSuunta(Suunta.WEST);
+        heitto.syotaSuunta(Suunta.NORTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.NORTHWEST);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiVastakkaiset() {
+        Heitto heitto = new Heitto(4);
+        heitto.syotaSuunta(Suunta.EAST);
+        heitto.syotaSuunta(Suunta.WEST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.EAST);
+        assertEquals(heitto.getVoima(), 2);
+    }
+    
+    @Test
+    public void suunnanAsetusTestiVastakkaiset2() {
+        Heitto heitto = new Heitto(4);
+        heitto.syotaSuunta(Suunta.SOUTH);
+        heitto.syotaSuunta(Suunta.NORTH);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTH);
+        assertEquals(heitto.getVoima(), 2);
+    }
+    
+    @Test
+    public void puolitaHeitonVoimaTesti() {
+        Heitto heitto = new Heitto(20);
+        heitto.puolitaHeitonVoima();
+        assertEquals(heitto.getVoima(), 10);
+    }
+    
+    @Test
+    public void puolitaHeitonVoimaTestiArvoSuunta() {
+        Heitto heitto = new Heitto(20);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getVoima(), 10);
+    }
 }

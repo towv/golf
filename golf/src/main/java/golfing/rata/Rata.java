@@ -31,4 +31,8 @@ public class Rata {
     public List<Vayla> getVaylat() {
         return vaylat;
     }
+    
+    public Vayla getVayla(Integer vaylanNumero) {
+        return this.vaylat.get(vaylanNumero);
+    }
 }

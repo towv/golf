@@ -2,9 +2,11 @@ package golfing.gui;
 
 import golfing.kiekko.Vari;
 import golfing.peli.Kiekkopeli;
+import golfing.peli.Tuloskortti;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**

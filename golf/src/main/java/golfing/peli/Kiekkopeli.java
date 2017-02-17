@@ -5,6 +5,7 @@ import golfing.kiekko.Heitto;
 import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;
 import golfing.kiekko.Pelaaja;
+import golfing.kiekko.Sijainti;
 import golfing.kiekko.Suunta;
 import golfing.rata.Radat;
 import golfing.rata.Rata;
@@ -36,24 +37,35 @@ public class Kiekkopeli extends Timer implements ActionListener {
     private Heitto heitto;
     private String tilanne;
     private String viesti;
+    private Radat radat;
+    private Integer vayla;
+    private Tuloskortti tuloskortti;
 
-    public Kiekkopeli(int leveys, int korkeus, Pelaaja pelaaja, String rata, Radat radat) {
+    public Kiekkopeli(int leveys, int korkeus) {
         super(1000, null);
 
-        this.pelaaja = pelaaja;
+        this.radat = new Radat(leveys, korkeus);
+        this.pelaaja = new Pelaaja("Super-Pelaaja", leveys, korkeus);
+        this.pelaaja.lisaaKiekko();
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.jatkuu = true;
         this.liianlujaa = false;
         this.kiekko = this.pelaaja.getKiekko("draiveri");
         this.heitto = pelaaja.getHeitto();
+        this.vayla = 0;
 
-        this.rata = radat.getRadat().get(rata);
-        this.kori = this.rata.getVaylat().get(4).getKori();
+        this.rata = radat.getRadat().get("Kumpula");
+        this.tuloskortti = new Tuloskortti(this, this.rata);
+        this.kori = this.rata.getVaylat().get(0).getKori();
 
         addActionListener(this);
         setInitialDelay(1000);
 
+    }
+
+    public Tuloskortti getTuloskortti() {
+        return tuloskortti;
     }
 
     /**
@@ -65,6 +77,10 @@ public class Kiekkopeli extends Timer implements ActionListener {
         return this.rata.getNimi();
     }
 
+    public Radat getRadat() {
+        return radat;
+    }
+
     /**
      * Palauttaa pelaajan
      *
@@ -72,6 +88,27 @@ public class Kiekkopeli extends Timer implements ActionListener {
      */
     public Pelaaja getPelaaja() {
         return pelaaja;
+    }
+
+    public void setPelaaja(Pelaaja pelaaja) {
+        this.pelaaja = pelaaja;
+    }
+
+    public void setRata(String rata) {
+        this.rata = this.radat.getRadat().get(rata);
+        this.kori = this.rata.getVaylat().get(0).getKori();
+        this.tuloskortti = new Tuloskortti(this, this.rata);
+    }
+
+    public void vaihdaVaylaa() {
+        this.vayla++;
+        if (this.vayla == this.rata.getVaylat().size()) {
+            this.vayla = 0;
+        }
+        this.kori = this.rata.getVaylat().get(this.vayla).getKori();
+        this.jatkuu = true;
+        this.kiekko.setSijainti(new Sijainti(leveys / 2, korkeus - 3));
+        this.pelaaja.nollaaHeitot();
     }
 
     /**
@@ -118,6 +155,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
 
     /**
      * Kertoo pelin, tilanteen, kun jatkuu = false ei enää heitetä
+     *
      * @return boolean jatkuu
      */
     public boolean jatkuu() {
@@ -126,13 +164,14 @@ public class Kiekkopeli extends Timer implements ActionListener {
 
     /**
      * Asettaa boolean jatkuu
-     * 
+     *
      */
     public void setJatkuu(boolean jatkuu) {
         this.jatkuu = jatkuu;
     }
-/**
-     * Jos kiekko osuu koriin liian lujaa tulee boolean-liianlujaa arvoksi true 
+
+    /**
+     * Jos kiekko osuu koriin liian lujaa tulee boolean-liianlujaa arvoksi true
      */
     public void setLiianlujaa(boolean liianlujaa) {
         this.liianlujaa = liianlujaa;
@@ -149,19 +188,23 @@ public class Kiekkopeli extends Timer implements ActionListener {
     public int getLeveys() {
         return leveys;
     }
-/**
+
+    /**
      * Palauttaa merkkijonona sen hetkisen käytettyjen heittojen määrän
+     *
      * @return String "Heittoja: 'kokonaisluku'"
      */
     public String getTilanne() {
-        return "Heittoja: " + pelaaja.montakoHeittoa();
+        int vaylanNumero = this.vayla + 1;
+        return "Väylä:" + vaylanNumero
+                + " | Par: " + this.rata.getVayla(this.vayla).getPar()
+                + " | Heittoja: " + pelaaja.montakoHeittoa();
     }
 
     /**
-     * Palauttaa viestin.
-     * Alussa viesti on tervehdys pelaajalle.
-     * Jos kiekko osuu liian suurella voimalla koriin viestitetään tästä.
-     * Lopuksi viestitetään kiekon olevan korissa ja heittojenmäärä joka kului.
+     * Palauttaa viestin. Alussa viesti on tervehdys pelaajalle. Jos kiekko osuu
+     * liian suurella voimalla koriin viestitetään tästä. Lopuksi viestitetään
+     * kiekon olevan korissa ja heittojenmäärä joka kului.
      */
     public String getViesti() {
         if (this.pelaaja.montakoHeittoa() == 0) {
@@ -176,16 +219,15 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Muuttaa pelin tilannetta.
-     * Käskee myös paivitettavaa päivittämään tilanne ruudulle.
-     * Jos heitto on lähetetty kulkee se niin kauan kuin sillä on voimaa, tai 
-     * kunnes se osuu korii.
-     * Koriin osuessa tarkistetaan jäljellä oleva voima.
-     * Kiekon suunta riippuu annetusta suuntavoimasta.
+     * Muuttaa pelin tilannetta. Käskee myös paivitettavaa päivittämään tilanne
+     * ruudulle. Jos heitto on lähetetty kulkee se niin kauan kuin sillä on
+     * voimaa, tai kunnes se osuu korii. Koriin osuessa tarkistetaan jäljellä
+     * oleva voima. Kiekon suunta riippuu annetusta suuntavoimasta.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!jatkuu && !liianlujaa) {
+            this.tuloskortti.lisaaTulosVaylalle(this.vayla, this.rata.getVayla(this.vayla).getPar(), this.pelaaja);
             return;
         }
 
@@ -198,21 +240,15 @@ public class Kiekkopeli extends Timer implements ActionListener {
             this.liianlujaa = false;
         }
 
+        if (pelaaja.getHeitto() == null) {
+            return;
+        } else {
+            heitto = pelaaja.getHeitto();
+        }
+
         if (heitto.getTiiaus()) {
 
-//            if (heitto.getSuunta() != 0) {
-            if (heitto.getVoima() % heitto.getKerroin() == 0) {
-                if (heitto.getSuunta() < 0) {
-                    kiekko.liiku(Suunta.VASEN);
-                    heitto.kasvataSuuntaa();
-                } else if (heitto.getSuunta() > 0) {
-                    kiekko.liiku(Suunta.OIKEA);
-                    heitto.vahennaSuuntaa();
-                }
-            }
-//            }
-
-            kiekko.liiku(Suunta.YLOS);
+            kiekko.liiku(heitto.getSuunta());
             heitto.vahennaVoimaa();
 
             if (kori.osuu(kiekko.getSijainti())) {
@@ -228,8 +264,8 @@ public class Kiekkopeli extends Timer implements ActionListener {
         }
 
         if (heitto.getVoima() == 0) {
-            heitto.setKerroin(0);
-            heitto.setTiiaus(false);
+            this.pelaaja.setHeitto(null);
+            this.heitto = null;
         }
 
         paivitettava.paivita();

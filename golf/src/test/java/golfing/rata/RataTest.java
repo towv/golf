@@ -43,7 +43,7 @@ public class RataTest {
         Rata rata = new Rata("rata");
         assertEquals(rata.getNimi(), "rata");
         assertEquals(rata.getVaylat().size(), 0);
-        rata.lisaaVayla(new Vayla(new Kori(0, 0)));
+        rata.lisaaVayla(new Vayla(new Kori(0, 0), 3));
         assertEquals(rata.getVaylat().size(), 1);
         
     }

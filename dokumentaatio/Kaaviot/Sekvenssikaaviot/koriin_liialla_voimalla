@@ -1,0 +1,14 @@
+title Heittäminen, koriin osuminen liialla voimalla
+
+Kiekkopeli->Kiekko: getSijainti()
+Kiekko-->Kiekkopeli: Sijainti
+Kiekkopeli->Kori: osuu(Sijainti)
+Kori-->Kiekkopeli: true
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 4
+Kiekkopeli->Pelaaja: lisaaHeitto()
+Pelaaja->Pelaaja: this.heitot++
+Kiekkopeli->Heitto: setVoima(1)
+Kiekkopeli->Kiekkopeli: this.liianlujaa = true
+Kiekkopeli->Kiekkopeli: this.jatkuu = false
+

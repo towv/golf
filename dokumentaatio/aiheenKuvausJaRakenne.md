@@ -7,7 +7,7 @@ Aluksi kiekko heitetään koriin, mahdollisimman vähillä heitoilla. Jotta kiek
 
 Aluksi yksinpeli, myöhemmin ehkä moninpeli.
 
-Käytetään näppäimistöllä.
+Pelataan näppäimistöllä. Hiirtä käytetään valikoissa siirtymiseen.
 
 **Käyttäjä:** Pelaaja, (pelaajat)
 
