@@ -18,6 +18,7 @@
 2. Kaksi nuolinäppäintä määrittääksesi suunnan
 3. Enter lähettääksesi heiton matkaan.
 
+**Ohjeet heiton mekaniikasta**
 1. Heitolle annetaan voima "space"-näppäimellä. Voima riippuu painallusten määrästä.
 
 2. Heitolle annetaan Suunta nuolinäppäimillä. Vain kahdella ensimmäisellä suuntapainalluksella on merkitystä:
