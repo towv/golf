@@ -18,15 +18,17 @@
 2. Kaksi nuolinäppäintä määrittääksesi suunnan
 3. Enter lähettääksesi heiton matkaan.
 
-**Ohjeet heiton mekaniikasta**
+####Ohjeet heiton mekaniikasta####
+
+
 1. Heitolle annetaan voima "space"-näppäimellä. Voima riippuu painallusten määrästä.
 
-2. Heitolle annetaan Suunta nuolinäppäimillä. Vain kahdella ensimmäisellä suuntapainalluksella on merkitystä:
-  *Jos suuntaa ei anneta liikkuu Kiekko   sattumanvaraiseen suuntaan. Voima puolittuu.
-  *Jos suunta painalluksia on vain yksi liikkuu kiekko tähän suuntaan. Kuitenkin voima puolittuu.
-  *Jos suunta painallukset ovat vastakkaiset, liikkuu kiekko ensimmäisen suunta painalluksen osoittamaan suuntaan. Voima puolittuu.
-  *Jos molemmat ovat samaan suuntaan, liikkuu kiekko tähän suuntaan.
-  *Jos esim. ensimmäinen painallus on ylös ja toinen vasemmalle, liikkuu kiekko luoteeseen jne.
+2. Heitolle annetaan Suunta nuolinäppäimillä. Vain kahdella ensimmäisellä suuntapainalluksella on merkitystä
+  - Jos suuntaa ei anneta liikkuu Kiekko   sattumanvaraiseen suuntaan. Voima puolittuu.
+  - Jos suunta painalluksia on vain yksi liikkuu kiekko tähän suuntaan. Kuitenkin voima puolittuu.
+  - Jos suunta painallukset ovat vastakkaiset, liikkuu kiekko ensimmäisen suunta painalluksen osoittamaan suuntaan. Voima puolittuu.
+  - Jos molemmat ovat samaan suuntaan, liikkuu kiekko tähän suuntaan.
+  - Jos esim. ensimmäinen painallus on ylös ja toinen vasemmalle, liikkuu kiekko luoteeseen jne.
 
 3. Enter = tiiaus. Eli lähetetään kiekko matkaan annetuilla arvoilla.)
 
