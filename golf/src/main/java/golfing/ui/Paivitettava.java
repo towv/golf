@@ -1,4 +1,4 @@
-package golfing.gui;
+package golfing.ui;
 
 /**
  * Kiekkopelisovelluksen käyttöön suunnattu Paivitettava rajapinta.

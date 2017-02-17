@@ -1,6 +1,6 @@
 package golfing;
 
-import golfing.gui.Kayttoliittyma;
+import golfing.ui.Kayttoliittyma;
 import golfing.kiekko.Pelaaja;
 import golfing.peli.Kiekkopeli;
 import golfing.rata.Radat;

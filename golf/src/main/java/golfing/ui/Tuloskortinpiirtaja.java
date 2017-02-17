@@ -1,4 +1,4 @@
-package golfing.gui;
+package golfing.ui;
 
 import golfing.peli.Kiekkopeli;
 import golfing.peli.Tuloskortti;

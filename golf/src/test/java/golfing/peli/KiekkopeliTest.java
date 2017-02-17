@@ -5,7 +5,7 @@
  */
 package golfing.peli;
 
-import golfing.gui.Paivitettava;
+import golfing.ui.Paivitettava;
 import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;
 import golfing.kiekko.Pelaaja;

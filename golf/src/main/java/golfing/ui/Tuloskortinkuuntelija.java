@@ -1,4 +1,4 @@
-package golfing.gui;
+package golfing.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

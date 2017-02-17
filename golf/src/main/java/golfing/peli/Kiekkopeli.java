@@ -1,6 +1,6 @@
 package golfing.peli;
 
-import golfing.gui.Paivitettava;
+import golfing.ui.Paivitettava;
 import golfing.kiekko.Heitto;
 import golfing.kiekko.Kiekko;
 import golfing.kiekko.Kori;

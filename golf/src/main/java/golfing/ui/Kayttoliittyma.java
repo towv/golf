@@ -1,4 +1,4 @@
-package golfing.gui;
+package golfing.ui;
 
 import golfing.peli.Kiekkopeli;
 import java.awt.BorderLayout;
@@ -64,15 +64,9 @@ public class Kayttoliittyma implements Runnable {
 
         JPanel nappiPaneeli = new JPanel();
 
-        nappiPaneeli.add(alku);
-        nappiPaneeli.add(menu);
-        nappiPaneeli.add(peli);
-        nappiPaneeli.add(tuloskortti);
+        lisaaNapitPaneeliin(nappiPaneeli, alku, menu, peli, tuloskortti);
 
-        alku.addActionListener(new Napinkuuntelija(layout, kortit));
-        menu.addActionListener(new Napinkuuntelija(layout, kortit));
-        peli.addActionListener(new Napinkuuntelija(layout, kortit));
-        tuloskortti.addActionListener(new Napinkuuntelija(layout, kortit));
+        lisaaKuuntelijatValilehtiNapeille(alku, layout, kortit, menu, peli, tuloskortti);
 
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getPelaaja());
         peli.addKeyListener(kuuntelija);
@@ -109,6 +103,20 @@ public class Kayttoliittyma implements Runnable {
 
 //        container.add(piirtoalusta);
 //        frame.addKeyListener(kuuntelija);
+    }
+
+    private void lisaaNapitPaneeliin(JPanel nappiPaneeli, JButton alku, JButton menu, JButton peli, JButton tuloskortti) {
+        nappiPaneeli.add(alku);
+        nappiPaneeli.add(menu);
+        nappiPaneeli.add(peli);
+        nappiPaneeli.add(tuloskortti);
+    }
+
+    private void lisaaKuuntelijatValilehtiNapeille(JButton alku, CardLayout layout, JPanel kortit, JButton menu, JButton peli, JButton tuloskortti) {
+        alku.addActionListener(new Napinkuuntelija(layout, kortit));
+        menu.addActionListener(new Napinkuuntelija(layout, kortit));
+        peli.addActionListener(new Napinkuuntelija(layout, kortit));
+        tuloskortti.addActionListener(new Napinkuuntelija(layout, kortit));
     }
 
     /**
