@@ -23,4 +23,4 @@ Päivä | Tunnit | Kuvaus
 13.02.2017 | 2.0h | Sekvenssikaaviot
 14.02.2017 | 5.0h | Testejä ja koodia
 16.02.2017 | 5.0h | Tuloskortti, väylän vaihto, käyttäjän nimi jne. koodit
-17.02.2017 | 4.0h | Luokkakaavion päivitys, testejä, javadoc
+17.02.2017 | 7.0h | Luokkakaavion päivitys, testejä, javadoc

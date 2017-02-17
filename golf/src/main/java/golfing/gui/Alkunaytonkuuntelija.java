@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  * Alkunäytönkuuntelija. Kuuntelee alkunäyttöä. 
  * Käyttäjän nimi ja radannimi käyttäjän syötteen mukaan.
  */
-public class AlkunaytonKuuntelija implements ActionListener {
+public class Alkunaytonkuuntelija implements ActionListener {
 
     private JTextField kayttajanNimi;
     private JTextField radanNimi;
@@ -29,7 +29,7 @@ public class AlkunaytonKuuntelija implements ActionListener {
      * @param layout Kortti layout.
      * @param kortit Korttien piirto.
      */
-    public AlkunaytonKuuntelija(JTextField kayttajanNimi, JTextField radanNimi, Kiekkopeli kiekkopeli, CardLayout layout, JPanel kortit) {
+    public Alkunaytonkuuntelija(JTextField kayttajanNimi, JTextField radanNimi, Kiekkopeli kiekkopeli, CardLayout layout, JPanel kortit) {
         this.kayttajanNimi = kayttajanNimi;
         this.radanNimi = radanNimi;
         this.kiekkopeli = kiekkopeli;

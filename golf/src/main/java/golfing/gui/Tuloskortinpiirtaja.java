@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  *
  * Tuloskortin piirtoalusta. Piirtää tulokset kiekkopelin mukaan.
  */
-public class TuloskortinPiirtaja extends JPanel implements Paivitettava {
+public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
 
     private Kiekkopeli kike;
 
@@ -21,7 +21,7 @@ public class TuloskortinPiirtaja extends JPanel implements Paivitettava {
      * Tuloskortin konstruktori.
      * @param kike Kiekkopeli-olio.
      */
-    public TuloskortinPiirtaja(Kiekkopeli kike) {
+    public Tuloskortinpiirtaja(Kiekkopeli kike) {
         super.setBackground(Color.CYAN);
         this.kike = kike;
     }

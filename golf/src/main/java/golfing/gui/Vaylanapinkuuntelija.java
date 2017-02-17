@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
  *
  * Vayla -nappia kuunteleva luokka. Antaa Kiekkopelille käskyn vaihtaa väylää. 
  */
-public class VaylaNapinKuuntelija implements ActionListener {
+public class Vaylanapinkuuntelija implements ActionListener {
 
     private Kiekkopeli kike;
 
@@ -16,7 +16,7 @@ public class VaylaNapinKuuntelija implements ActionListener {
      * Vaylanapinkuuntelija. Konstruktori.
      * @param kike Peli jota pelataan.
      */
-    public VaylaNapinKuuntelija(Kiekkopeli kike) {
+    public Vaylanapinkuuntelija(Kiekkopeli kike) {
         this.kike = kike;
     }
 

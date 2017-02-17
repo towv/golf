@@ -8,15 +8,15 @@ import java.awt.event.ActionListener;
  * Tuloskortinkuuntelija. Kuuntelee tuloskortti välilehteä, ja painettaessa
  * lähettää päivityskäskyn piirtäjälle.
  */
-public class TuloskortinKuuntelija implements ActionListener {
+public class Tuloskortinkuuntelija implements ActionListener {
 
-    private TuloskortinPiirtaja piirtaja;
+    private Tuloskortinpiirtaja piirtaja;
 
     /**
      * Tuloskortinkuuntelijan konstruktori.
      * @param piirtaja Paneeli joka huolehtii tuloskortin ulkoasusta.
      */
-    public TuloskortinKuuntelija(TuloskortinPiirtaja piirtaja) {
+    public Tuloskortinkuuntelija(Tuloskortinpiirtaja piirtaja) {
         this.piirtaja = piirtaja;
     }
 

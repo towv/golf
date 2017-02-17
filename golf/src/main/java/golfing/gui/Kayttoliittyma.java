@@ -25,7 +25,7 @@ public class Kayttoliittyma implements Runnable {
     private Piirtoalusta piirtoalusta;
 
     /**
-     *
+     * Käyttöliittymä.
      * @param kike Kiekkopeli-olio
      * @param pituus pituus
      */
@@ -82,7 +82,7 @@ public class Kayttoliittyma implements Runnable {
         JTextField radanNimi = new JTextField("Syötä tähän valitsemasi rata, vaihtoehdot tänään: " + 
                 kike.getRadat().getRadat().keySet());
         JButton vahvistusNappi = new JButton("Vahvista tästä, ja siirry peli-ikkunaan hiirellä");
-        vahvistusNappi.addActionListener(new AlkunaytonKuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
+        vahvistusNappi.addActionListener(new Alkunaytonkuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
         
         JPanel alkupaneeli = new JPanel(alkulayout);
         alkupaneeli.add(pelaajanNimi, BorderLayout.NORTH);
@@ -94,12 +94,12 @@ public class Kayttoliittyma implements Runnable {
         kortit.add(piirtoalusta, "pelinakyma");
 
         JButton vaylanVaihtoNappi = new JButton("Vaihda väylää");
-        vaylanVaihtoNappi.addActionListener(new VaylaNapinKuuntelija(kike));
+        vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
         kortit.add(vaylanVaihtoNappi, "menu");
 
-        TuloskortinPiirtaja tuloskortinpiirtaja = new TuloskortinPiirtaja(kike);
+        Tuloskortinpiirtaja tuloskortinpiirtaja = new Tuloskortinpiirtaja(kike);
         kortit.add(tuloskortinpiirtaja, "tuloskortti");
-        tuloskortti.addActionListener(new TuloskortinKuuntelija(tuloskortinpiirtaja));
+        tuloskortti.addActionListener(new Tuloskortinkuuntelija(tuloskortinpiirtaja));
 
         kike.setPaivitettava(piirtoalusta);
 
