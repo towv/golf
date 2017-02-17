@@ -24,6 +24,11 @@ public class Kayttoliittyma implements Runnable {
     private int pituus;
     private Piirtoalusta piirtoalusta;
 
+    /**
+     *
+     * @param kike Kiekkopeli-olio
+     * @param pituus pituus
+     */
     public Kayttoliittyma(Kiekkopeli kike, int pituus) {
         this.kike = kike;
         this.pituus = pituus;
@@ -106,10 +111,18 @@ public class Kayttoliittyma implements Runnable {
 //        frame.addKeyListener(kuuntelija);
     }
 
+    /**
+     *
+     * @return palauttaa piirtoalustan
+     */
     public Paivitettava getPaivitettava() {
         return piirtoalusta;
     }
 
+    /**
+     *
+     * @return framen
+     */
     public JFrame getFrame() {
         return frame;
     }

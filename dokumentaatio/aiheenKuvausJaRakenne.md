@@ -13,6 +13,10 @@ Pelataan näppäimistöllä. Hiirtä käytetään valikoissa siirtymiseen.
 
 **Kaikkien käyttäjien toiminnot:** Pelaajatunnuksen luominen, frisbeen heittäminen
 
-**Kaaviot:** ![Luokkakaavio](Kaaviot/luokkakaavio.png)
+**Kaaviot:** 
 
-Huomaa kommentit kaaviossa. Kansiosta Dokumentaatio/Kaaviot löytyy myös kuvana tämänhetkinen tilanne, sekä tulevan hahmotelma. En nyt kerennyt näitä koneella tekemään, eikä se olisi mielekästä kun projekti kehittyy kokoajan.
+![Luokkakaavio](Kaaviot/luokkakaavio.png)
+![Sekvenssikaavio: Nappaimistonkuuntelija](Kaaviot/Sekvenssikaaviot/heitto_yksi_suunta.png)
+![Sekvenssikaavio: Kiekkopeli actionevent](Kaaviot/Sekvenssikaaviot/Kiekkopeli_Actionevent_Voima1.png)
+![Sekvenssikaavio: Kiekkopeli osuu koriin liialla voimalla](Kaaviot/Sekvenssikaaviot/osuuKoriinLiikaaVoimaa.png)
+

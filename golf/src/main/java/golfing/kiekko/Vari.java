@@ -6,5 +6,19 @@ package golfing.kiekko;
  */
 
 public enum Vari {
-    LIILA, SININEN, HARMAA;
+
+    /**
+     *  Liila väri.
+     */
+    LIILA,
+
+    /**
+     * Sininen väri.
+     */
+    SININEN,
+
+    /**
+     * Harmaa väri.
+     */
+    HARMAA;
 }

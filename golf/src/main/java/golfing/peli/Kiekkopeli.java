@@ -41,6 +41,11 @@ public class Kiekkopeli extends Timer implements ActionListener {
     private Integer vayla;
     private Tuloskortti tuloskortti;
 
+    /**
+     * Kiekkopelin konstruktori.
+     * @param leveys Kiekkkopelin leveys.
+     * @param korkeus Kiekkopelin korkeus.
+     */
     public Kiekkopeli(int leveys, int korkeus) {
         super(1000, null);
 
@@ -64,42 +69,64 @@ public class Kiekkopeli extends Timer implements ActionListener {
 
     }
 
+    /**
+     * Tuloskortin haku.
+     * @return tuloskortti
+     */
     public Tuloskortti getTuloskortti() {
         return tuloskortti;
     }
 
     /**
-     * Palauttaa radan nimen
+     * Palauttaa radan nimen.
      *
-     * @return Radan nimi
+     * @return Radan nimi.
      */
     public String getRata() {
         return this.rata.getNimi();
     }
 
+    /**
+     * Ratavalikoiman haku.
+     * @return palauttaa Radat - olion.
+     */
     public Radat getRadat() {
         return radat;
     }
 
     /**
-     * Palauttaa pelaajan
+     * Palauttaa pelaajan.
      *
-     * @return Pelaaja-olio
+     * @return Pelaaja-olio.
      */
     public Pelaaja getPelaaja() {
         return pelaaja;
     }
 
+    /**
+     * Asettaa pelaajan.
+     * @param pelaaja Asettaa Pelaajaksi parametrin mukaisen Pelaaja-olion.
+     */
     public void setPelaaja(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
     }
 
+    /**
+     * Asettaa radan pelattavaksi.
+     * @param rata Asettaa pelattavaksi radaksi parametrin nimisen radan.
+     */
     public void setRata(String rata) {
         this.rata = this.radat.getRadat().get(rata);
         this.kori = this.rata.getVaylat().get(0).getKori();
         this.tuloskortti = new Tuloskortti(this, this.rata);
     }
 
+    /**
+     * Vaihtaa väylää.
+     * Vaihtaa seuraavaan väylään, jos ollaan viimeisessä niin takaisin ensimmäiseen.
+     * Asettaa myös Kiekkopelin koriksi tämän väylän korin, kiekkopeli jatkuu ja 
+     * Pelin kiekko-olio asetetaan takaisin alkusijaintiin ja pelaajan heitot nollataan.
+     */
     public void vaihdaVaylaa() {
         this.vayla++;
         if (this.vayla == this.rata.getVaylat().size()) {
@@ -112,7 +139,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Palauttaa heiton
+     * Palauttaa heiton.
      *
      * @return Heitto-olio
      */
@@ -121,7 +148,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Palauttaa kiekon joka on käytössä
+     * Palauttaa kiekon joka on käytössä.
      *
      * @return Kiekko -olio
      */
@@ -130,15 +157,16 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Asettaa käytettävän kiekon
+     * Asettaa käytettävän kiekon.
      *
+     * @param kiekko Asetetaan kiekko pelattavaksi.
      */
     public void setKiekko(Kiekko kiekko) {
         this.kiekko = kiekko;
     }
 
     /**
-     * Palauttaa pelattavan korin
+     * Palauttaa pelattavan korin.
      *
      * @return kori-olio
      */
@@ -147,14 +175,15 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Asettaa korin pelattavaksi
+     * Asettaa korin pelattavaksi.
+     * @param kori asettaa korin pelattavaksi.
      */
     public void setKori(Kori kori) {
         this.kori = kori;
     }
 
     /**
-     * Kertoo pelin, tilanteen, kun jatkuu = false ei enää heitetä
+     * Kertoo pelin, tilanteen, kun jatkuu = false ei enää heitetä.
      *
      * @return boolean jatkuu
      */
@@ -163,34 +192,48 @@ public class Kiekkopeli extends Timer implements ActionListener {
     }
 
     /**
-     * Asettaa boolean jatkuu
+     * Asettaa boolean jatkuu.
      *
+     * @param jatkuu Asetetaan jatkumisen tila.
      */
     public void setJatkuu(boolean jatkuu) {
         this.jatkuu = jatkuu;
     }
 
     /**
-     * Jos kiekko osuu koriin liian lujaa tulee boolean-liianlujaa arvoksi true
+     * Jos kiekko osuu koriin liian lujaa tulee boolean-liianlujaa arvoksi true.
+     * @param liianlujaa Asetetaan boolean liianlujaa.
      */
     public void setLiianlujaa(boolean liianlujaa) {
         this.liianlujaa = liianlujaa;
     }
 
+    /**
+     * Asettaa paivitettavan.
+     * @param paivitettava Asettaa päivitettävän piirtoalustan.
+     */
     public void setPaivitettava(Paivitettava paivitettava) {
         this.paivitettava = paivitettava;
     }
 
+    /**
+     * Palauttaa kiekkopelin korkeuden.
+     * @return Kiekkopelin korkeus
+     */
     public int getKorkeus() {
         return korkeus;
     }
 
+    /**
+     * Palauttaa kiekkopelin leveyden.
+     * @return Kiekkopelin leveys
+     */
     public int getLeveys() {
         return leveys;
     }
 
     /**
-     * Palauttaa merkkijonona sen hetkisen käytettyjen heittojen määrän
+     * Palauttaa merkkijonona sen hetkisen käytettyjen heittojen määrän.
      *
      * @return String "Heittoja: 'kokonaisluku'"
      */
@@ -205,6 +248,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
      * Palauttaa viestin. Alussa viesti on tervehdys pelaajalle. Jos kiekko osuu
      * liian suurella voimalla koriin viestitetään tästä. Lopuksi viestitetään
      * kiekon olevan korissa ja heittojenmäärä joka kului.
+     * @return viesti
      */
     public String getViesti() {
         if (this.pelaaja.montakoHeittoa() == 0) {
@@ -223,6 +267,7 @@ public class Kiekkopeli extends Timer implements ActionListener {
      * ruudulle. Jos heitto on lähetetty kulkee se niin kauan kuin sillä on
      * voimaa, tai kunnes se osuu korii. Koriin osuessa tarkistetaan jäljellä
      * oleva voima. Kiekon suunta riippuu annetusta suuntavoimasta.
+     * @param e Tapahtuman mukaan toiminta.
      */
     @Override
     public void actionPerformed(ActionEvent e) {

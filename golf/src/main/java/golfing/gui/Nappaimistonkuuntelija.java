@@ -15,6 +15,10 @@ public class Nappaimistonkuuntelija implements KeyListener {
     private Pelaaja pelaaja;
     private Heitto heitto;
 
+    /**
+     * Näppäimistönkuuntelin konstruktori.
+     * @param pelaaja Pelaaja, joka pelaa Kiekkopeliä.
+     */
     public Nappaimistonkuuntelija(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
         this.heitto = this.pelaaja.getHeitto();

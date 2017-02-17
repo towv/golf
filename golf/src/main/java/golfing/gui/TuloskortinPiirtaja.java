@@ -9,10 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JPanel;
 
+/**
+ *
+ * Tuloskortin piirtoalusta. Piirtää tulokset kiekkopelin mukaan.
+ */
 public class TuloskortinPiirtaja extends JPanel implements Paivitettava {
 
     private Kiekkopeli kike;
 
+    /**
+     * Tuloskortin konstruktori.
+     * @param kike Kiekkopeli-olio.
+     */
     public TuloskortinPiirtaja(Kiekkopeli kike) {
         super.setBackground(Color.CYAN);
         this.kike = kike;
@@ -59,6 +67,9 @@ public class TuloskortinPiirtaja extends JPanel implements Paivitettava {
         }
     }
 
+    /**
+     * Paivitettava rajapinnan paivita() metodi ylikirjoitetaan.
+     */
     @Override
     public void paivita() {
         repaint();

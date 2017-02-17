@@ -14,6 +14,6 @@ Yksinkertainen frisbeegolf-peli.
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/site/checkstyle.html)
 
-Checkstyle FileLength Error aiheutui javadocista, /Dokumentaatio/Checkstyle-raportit löytyy vielä raportti, jossa vähemmän javadoccia ja pituus alle 200.
+Checkstyle FileLength Error aiheutui javadocista.
 
-[PIT-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/pit/201702102209/index.html)
+[PIT-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/pit/201702171723/index.html)

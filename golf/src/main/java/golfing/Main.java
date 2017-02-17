@@ -8,12 +8,16 @@ import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**
- * Main-luokka. Luo Radat-olion, Pelaaja-olion ja Kiekkopeli-olion ja käynnistää
+ * Main-luokka. Kiekkopeli-olion ja käynnistää
  * graafisen käyttöliittymän.
  *
  */
 public class Main {
 
+    /**
+     *
+     * @param args Pääluokka.
+     */
     public static void main(String[] args) {
         int leveys = 20;
         int korkeus = 30;

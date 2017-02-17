@@ -8,12 +8,18 @@ package golfing.kiekko;
 
 public class Kori extends Sijainti {
 
+    /**
+     * Korin konstruktori.
+     * @param x koordinaatti
+     * @param y koordinaatti
+     */
     public Kori(int x, int y) {
         super(x, y);
     }
     
     /**
-     * Palauttaa true jos kiekko menee koriin
+     * Palauttaa true jos kiekko menee koriin.
+     * @param sijainti johon verrataan korin sijaintia.
      * @return boolean
      */
 

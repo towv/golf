@@ -16,6 +16,13 @@ public class Radat {
     private int leveys;
     private int korkeus;
 
+    /**
+     * Radat valikoiman konstruktori.
+     * @param leveys Kiekkopelin leveys
+     * @param korkeus Kiekkopelin korkeus
+     * Tässä luodaan yksittäisiä ratoja, jotka sitten kuuluvat ratavalikoimaan.
+     * Luotuna 6 väyläinen Kumpula.
+     */
     public Radat(int leveys, int korkeus) {
         if (leveys <= 0 || korkeus <= 0) {
             throw new IllegalArgumentException("Sekä leveyden, että korkeuden on oltava suurempi kuin nolla!");
@@ -32,6 +39,10 @@ public class Radat {
         radat.put("Kumpula", kumpula);
     }
 
+    /**
+     * Ratavalikoima.
+     * @return Palauttaa ratavalikoiman.
+     */
     public HashMap<String, Rata> getRadat() {
         return radat;
     }

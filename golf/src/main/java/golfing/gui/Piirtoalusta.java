@@ -20,6 +20,11 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     private int kiekonLeveys;
     private Vari kiekonVari;
 
+    /**
+     * Piirtoalustan konstruktori.
+     * @param kiekkopeli - olio
+     * @param kiekonLeveys - kiekonkoko
+     */
     public Piirtoalusta(Kiekkopeli kiekkopeli, int kiekonLeveys) {
         super.setBackground(Color.CYAN);
         this.kiekkopeli = kiekkopeli;
@@ -65,6 +70,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.fillOval(kiekkopeli.getKiekko().getSijainti().getX() * kiekonLeveys, kiekkopeli.getKiekko().getSijainti().getY() * kiekonLeveys, kiekonLeveys, kiekonLeveys);
     }
 
+    /**
+     * Toteutus Paivitettava rajapinnan metodille paivita().
+     */
     @Override
     public void paivita() {
         repaint();

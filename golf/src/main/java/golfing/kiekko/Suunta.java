@@ -7,6 +7,43 @@ package golfing.kiekko;
 
 public enum Suunta {
 
-//    YLOS, OIKEA, ALAS, VASEN;
-    NORTH, EAST, SOUTH, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST;
+    /**
+     * Ylös.
+     */
+    NORTH,
+
+    /**
+     * Oikealle.
+     */
+    EAST,
+
+    /**
+     * Alas.
+     */
+    SOUTH,
+
+    /**
+     * Vasemmalle.
+     */
+    WEST,
+
+    /**
+     * Yläoikealle.
+     */
+    NORTHEAST,
+
+    /**
+     * Ylävasemmalle.
+     */
+    NORTHWEST,
+
+    /**
+     * Alaoikealle.
+     */
+    SOUTHEAST,
+
+    /**
+     * Alavasemmalle.
+     */
+    SOUTHWEST;
 }
