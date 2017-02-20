@@ -43,7 +43,9 @@ public class Alkunaytonkuuntelija implements ActionListener {
 
         if (kayttajanNimi.getText().isEmpty()) {
             kayttajanNimi.setText("Nimeä ei voi jättää tyhjäksi!");
-        } else if (kayttajanNimi.getText().equals("Nimeä ei voi jättää tyhjäksi!") || kayttajanNimi.getText().equals("Syötä tähän nimesi")) {
+        } else if (kayttajanNimi.getText().equals("Nimeä ei voi jättää tyhjäksi!") 
+                || kayttajanNimi.getText().equals("Syötä tähän nimesi")
+                || kayttajanNimi.getText().equals("Anna nimesi")) {
             kayttajanNimi.setText("Anna nimesi");
         } else {
             kiekkopeli.getPelaaja().setNimi(kayttajanNimi.getText());
