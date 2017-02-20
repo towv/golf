@@ -6,6 +6,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +27,7 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Käyttöliittymä.
+     *
      * @param kike Kiekkopeli-olio
      * @param pituus pituus
      */
@@ -70,24 +72,33 @@ public class Kayttoliittyma implements Runnable {
 
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getPelaaja());
         peli.addKeyListener(kuuntelija);
-        
+
         BorderLayout alkulayout = new BorderLayout();
         JTextField pelaajanNimi = new JTextField("Syötä tähän nimesi");
-        JTextField radanNimi = new JTextField("Syötä tähän valitsemasi rata, vaihtoehdot tänään: " + 
-                kike.getRadat().getRadat().keySet());
+        JTextField radanNimi = new JTextField("Syötä tähän valitsemasi rata, vaihtoehdot tänään: "
+                + kike.getRadat().getRadat().keySet());
         JButton vahvistusNappi = new JButton("Vahvista tästä, ja siirry peli-ikkunaan hiirellä");
+
+//        JButton ohje = new JButton("Ohjeet");
+//        JButton kiekonValinta = new JButton("Valitse kiekot");
         vahvistusNappi.addActionListener(new Alkunaytonkuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
-        
+
         JPanel alkupaneeli = new JPanel(alkulayout);
         alkupaneeli.add(pelaajanNimi, BorderLayout.NORTH);
         alkupaneeli.add(radanNimi, BorderLayout.SOUTH);
         alkupaneeli.add(vahvistusNappi, BorderLayout.CENTER);
+//        alkupaneeli.add(ohje, BorderLayout.WEST);
+//        alkupaneeli.add(kiekonValinta, BorderLayout.EAST);
         kortit.add(alkupaneeli, "alkuvalikko");
-        
+
         piirtoalusta = new Piirtoalusta(kike, pituus);
         kortit.add(piirtoalusta, "pelinakyma");
 
-        JButton vaylanVaihtoNappi = new JButton("Vaihda väylää");
+        ImageIcon kumpulakartta = new ImageIcon("/home/twviiala/golf/golf/golf/src/main/resources/kumpulakartta.jpeg");
+        JButton vaylanVaihtoNappi = new JButton("Vaihda väylää", kumpulakartta);
+        vaylanVaihtoNappi.setIconTextGap(20);
+        vahvistusNappi.setName("Vaihda väylää");
+        vahvistusNappi.setOpaque(true);
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
         kortit.add(vaylanVaihtoNappi, "menu");
 
