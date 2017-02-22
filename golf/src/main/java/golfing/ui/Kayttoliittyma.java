@@ -94,11 +94,9 @@ public class Kayttoliittyma implements Runnable {
         piirtoalusta = new Piirtoalusta(kike, pituus);
         kortit.add(piirtoalusta, "pelinakyma");
 
-        ImageIcon kumpulakartta = new ImageIcon("/home/twviiala/golf/golf/golf/src/main/resources/kumpulakartta.jpeg");
-        JButton vaylanVaihtoNappi = new JButton("Vaihda väylää", kumpulakartta);
-        vaylanVaihtoNappi.setIconTextGap(20);
+        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
+        JButton vaylanVaihtoNappi = new JButton(kumpulakartta);
         vahvistusNappi.setName("Vaihda väylää");
-        vahvistusNappi.setOpaque(true);
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
         kortit.add(vaylanVaihtoNappi, "menu");
 
