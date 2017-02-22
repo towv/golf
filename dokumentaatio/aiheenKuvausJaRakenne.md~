@@ -20,7 +20,3 @@ Pelataan näppäimistöllä. Hiirtä käytetään valikoissa siirtymiseen.
 ![Sekvenssikaavio: Kiekkopeli actionevent](Kaaviot/Sekvenssikaaviot/Kiekkopeli_Actionevent_Voima1.png)
 ![Sekvenssikaavio: Kiekkopeli osuu koriin liialla voimalla](Kaaviot/Sekvenssikaaviot/osuuKoriinLiikaaVoimaa.png)
 
-**Rakennekuvaus:**
-Kiekkopeli on pääpeliluokka. Se annetaan pääkäyttöliittymäluokalla Kayttoliittyma parametrina luodessa.
-Yhteydet muihin ui luokkiin kulkevat Kiekkopeli luokan kautta, josta saadaan haettua tarvittavat muut luokat, eri asioiden ruudulle päivittämistä varten.
-Nappaimistonkuuntelija on itse pelaamisesta vastuullinen tapahtumankuuntelija.
