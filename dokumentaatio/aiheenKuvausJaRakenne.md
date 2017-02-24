@@ -29,4 +29,4 @@ Tapahtumankuuntelijat kuuntelevat mitä käyttäjä tekee pyytävät logiikkaluo
 
 Pelin valikossa on neljä ikkunaa, ja näihin liittyy nappeja tai JPaneleita, jotka näyttävät halutut asiat käyttäjälle.
 
-Logiikkaan kuuluu useita luokkia, jotka avustavat pääpeliluokkaa eli Kiekkopeliä. Näitä ovat Pelaaja, jolla on Kiekkoja ja Heitto.
+Logiikkaan kuuluu useita luokkia, jotka avustavat pääpeliluokkaa eli Kiekkopeliä. Näitä ovat mm. Pelaaja, jolla on Kiekkoja ja Heitto.
