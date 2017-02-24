@@ -7,6 +7,7 @@
   2. Alas syötetään radaksi "Kumpula" joka on ainoa rata tällä hetkellä
   3. Sitten painetaan keskinappia.
 2. Tämän jälkeen tulee valita peli -välilehti hiirellä ja seurata heiton ohjeita, kiekko heitetään koriin.
+  1. Voit vaihtaa koska vain väylän aikana tai välissä menu-välilehdeltä kiekkoa.
 3. Voit halutessasi katsoa tuloskorttia (tämän voi tehdä joka väylän jälkeen tai koska vain myös pelin aikana) tai siirtyä suoraan askeleeseen 4.
 4. Klikkaa hiirellä menu välilehteä ja siellä olevaa vaihda väylää nappulaa vaihtaaksesi väylää
 5. Palaa takaisin peli ikkunaan hiirellä ja pelaa.
@@ -31,6 +32,16 @@
   - Jos esim. ensimmäinen painallus on ylös ja toinen vasemmalle, liikkuu kiekko luoteeseen jne.
 
 3. Enter = tiiaus. Eli lähetetään kiekko matkaan annetuilla arvoilla.)
+
+###Kolme eri kiekkoa
+1. Draiveri: Pitkän matkan kiekko, ylivakaa eli tekee pienin mutkan vasemman kautta ja loppufeidi on oikealle
+2. Midari: Keskimatkan kiekko, alivaka eli tekee pienen mutkan oikean kautta ja loppufeidi on vasemmalle.
+3. Putteri: Suoriin heittoihin.
+
+###Kiekon ominaisuudet
+1. Kovassa heitossa, joka ylittää kiekon nopeuden, liito auttaa kantamaan vielä pidemmälle
+2. Pidemmissä heitossa myös kiekon vakaus astuu peliin ja kiekko kaartaa vakauden mukaisesti
+3. Loppufeidiä voi hyödyntää tarvittaessa sopivaa loppuliitoa.
 
 
 
