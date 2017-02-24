@@ -6,6 +6,10 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
+import java.util.Scanner;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -97,7 +101,16 @@ public class Kayttoliittyma implements Runnable {
         BorderLayout menuLayout = new BorderLayout();
         JPanel menupaneeli = new JPanel(menuLayout);
 
-        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
+        InputStream is = getClass().getClassLoader().getResourceAsStream("kumpulakartta.jpeg");
+//        Scanner lukija = new Scanner(is);
+        BufferedImage bf = null;
+        try {
+        bf = ImageIO.read(is);
+        } catch (Exception b) {
+            
+        }
+        ImageIcon kumpulakartta = new ImageIcon(bf.getScaledInstance(400, 400, 400));
+//        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
         JButton vaylanVaihtoNappi = new JButton(kumpulakartta);
         vahvistusNappi.setName("Vaihda väylää");
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
