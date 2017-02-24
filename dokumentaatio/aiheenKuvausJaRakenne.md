@@ -21,6 +21,12 @@ Pelataan näppäimistöllä. Hiirtä käytetään valikoissa siirtymiseen.
 ![Sekvenssikaavio: Kiekkopeli osuu koriin liialla voimalla](Kaaviot/Sekvenssikaaviot/osuuKoriinLiikaaVoimaa.png)
 
 **Rakennekuvaus:**
-Kiekkopeli on pääpeliluokka. Se annetaan pääkäyttöliittymäluokalla Kayttoliittyma parametrina luodessa.
-Yhteydet muihin ui luokkiin kulkevat Kiekkopeli luokan kautta, josta saadaan haettua tarvittavat muut luokat, eri asioiden ruudulle päivittämistä varten.
-Nappaimistonkuuntelija on itse pelaamisesta vastuullinen tapahtumankuuntelija.
+Kiekkopeli on pääpeliluokka. Se luodaan mainissa ensin ja sitten annetaan pääkäyttöliittymäluokalle Kayttoliittyma parametrina tätä luodessa.
+
+Yhteydet muihin ui luokkiin kulkevat Kayttoliittyman ja sitä kautta Kiekkopeli luokan kautta, josta saadaan haettua tarvittavat muut luokat, eri asioiden ruudulle päivittämistä varten.
+
+Tapahtumankuuntelijat kuuntelevat mitä käyttäjä tekee pyytävät logiikkaluokkia toimimaan tämän mukaisesti. Nappaimistonkuuntelija on itse pelaamisesta(heittämisestä) vastuullinen tapahtumankuuntelija. Kiekonvaihtonapinkuuntelija kuuntelee milloin käyttäjä haluaa vaihtaa kiekkoa, ja ilmoittaa tästä logiikalle. Vaylanvaihtonapinkuuntelija tekee saman väylien vaihdon suhteen. Muut kuuntelijat liittyvät valikossa liikkumiseen.
+
+Pelin valikossa on neljä ikkunaa, ja näihin liittyy nappeja tai JPaneleita, jotka näyttävät halutut asiat käyttäjälle.
+
+Logiikkaan kuuluu useita luokkia, jotka avustavat pääpeliluokkaa eli Kiekkopeliä. Näitä ovat Pelaaja, jolla on Kiekkoja ja Heitto.

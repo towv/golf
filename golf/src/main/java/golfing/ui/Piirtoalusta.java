@@ -13,7 +13,6 @@ import javax.swing.JPanel;
  * Kiekkopelisovelluksen piirtäjä. Toteuttaa paivitettava rajapinnan.
  *
  */
-
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Kiekkopeli kiekkopeli;
@@ -22,6 +21,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     /**
      * Piirtoalustan konstruktori.
+     *
      * @param kiekkopeli - olio
      * @param kiekonLeveys - kiekonkoko
      */
@@ -29,7 +29,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         super.setBackground(Color.CYAN);
         this.kiekkopeli = kiekkopeli;
         this.kiekonLeveys = kiekonLeveys;
-        this.kiekonVari = kiekkopeli.getPelaaja().getKaytossaOlevanKiekonVari();
+        this.kiekonVari = kiekkopeli.getPelaaja().getKaytossaOlevaKiekko().getVari();
     }
 
     @Override
@@ -39,12 +39,12 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.setColor(Color.red);
         g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         g.drawString("" + kiekkopeli.getTilanne(), 0, 20);
-        
+
         String viesti = kiekkopeli.getViesti();
         String[] rivit = viesti.split("\n");
         String rivi1 = rivit[0];
         String rivi2 = rivit[1];
-        
+
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
         g.drawString(rivi1, 0, 350);
         g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
@@ -58,7 +58,8 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
         g.setColor(Color.BLACK);
         g.fillOval(kiekkopeli.getKori().getX() * kiekonLeveys, kiekkopeli.getKori().getY() * kiekonLeveys, kiekonLeveys * 2, kiekonLeveys * 2);
-        
+
+        this.kiekonVari = kiekkopeli.getPelaaja().getKaytossaOlevaKiekko().getVari();
         if (kiekonVari == Vari.LIILA) {
             g.setColor(Color.MAGENTA);
         } else if (kiekonVari == Vari.HARMAA) {
@@ -66,7 +67,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         } else if (kiekonVari == Vari.SININEN) {
             g.setColor(Color.BLUE);
         }
-        
+
         g.fillOval(kiekkopeli.getKiekko().getSijainti().getX() * kiekonLeveys, kiekkopeli.getKiekko().getSijainti().getY() * kiekonLeveys, kiekonLeveys, kiekonLeveys);
     }
 

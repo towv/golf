@@ -27,3 +27,5 @@ Päivä | Tunnit | Kuvaus
 18.02.2017 | 1.0h | Koodin refaktorointia
 20.02.2017 | 1.0h | Väyläkartta
 22.02.2017 | 0.5h | Jar
+23.02.2017 | 4.0h | Kiekon ominaisuudet käyttöön, koodia, testejä ja javadoccia
+24.02.2017 | 2.0h | Dokumentaation päivitystä

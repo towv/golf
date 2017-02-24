@@ -69,8 +69,9 @@ public class KiekkopeliTest {
 
     @Test
     public void asetaKiekkoTesti() {
-        kiekkopeli.setKiekko(new Kiekko("Kiekko", 0, 0));
+        kiekkopeli.setKiekko(new Kiekko("Kiekko", 1, 1));
         assertEquals(kiekkopeli.getKiekko().getNimi(), "Kiekko");
+        assertEquals(kiekkopeli.getKiekko().getSijainti().toString(), "1017");
     }
 
     @Test
@@ -127,7 +128,7 @@ public class KiekkopeliTest {
         assertEquals(kiekkopeli.getViesti(), "Kiekko tippui korista! "
                 + "\nJoudutaan heittämään vielä kerran...");
     }
-    
+
     @Test
     public void asetaPaivitettava() {
         kiekkopeli.setPaivitettava(new Paivitettava() {
@@ -140,25 +141,25 @@ public class KiekkopeliTest {
         kiekkopeli.actionPerformed(e);
         assertFalse(kiekkopeli.jatkuu());
     }
-    
+
     @Test
     public void getRadatTesti() {
-        assertEquals(kiekkopeli.getRadat().getRadat().size(), 1);      
+        assertEquals(kiekkopeli.getRadat().getRadat().size(), 1);
     }
-    
+
     @Test
     public void setPelaajaTesti() {
         kiekkopeli.setPelaaja(new Pelaaja("sami", 0, 0));
         assertEquals(kiekkopeli.getPelaaja().getNimi(), "sami");
     }
-    
+
     @Test
     public void setRata() {
         kiekkopeli.setRata("Kumpula");
         assertEquals(kiekkopeli.getRata(), "Kumpulan frisbeegolfrata");
         assertEquals(kiekkopeli.getKori().toString(), "104");
     }
-    
+
     @Test
     public void vaihdaVaylaaTesti() {
         kiekkopeli.getPelaaja().lisaaHeitto();
@@ -172,9 +173,9 @@ public class KiekkopeliTest {
         kiekkopeli.vaihdaVaylaa();
         kiekkopeli.vaihdaVaylaa();
         kiekkopeli.vaihdaVaylaa();
-        assertEquals(kiekkopeli.getKori().toString(), "104");        
+        assertEquals(kiekkopeli.getKori().toString(), "104");
     }
-    
+
     @Test
     public void getTuloskorttiTesti() {
         assertEquals(kiekkopeli.getTuloskortti().getTulosRata(), "Kumpulan frisbeegolfrata");

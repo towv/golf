@@ -19,6 +19,7 @@ public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
 
     /**
      * Tuloskortin konstruktori.
+     *
      * @param kike Kiekkopeli-olio.
      */
     public Tuloskortinpiirtaja(Kiekkopeli kike) {
@@ -50,7 +51,6 @@ public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
 //        for (int i = 1; i <= tulokset.size(); i++) {
 //            g.drawString(tulokset.get(i), 5, 40 + 20 * i);
 //        }
-
         g.setColor(Color.blue);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         g.drawString("Ihanne heitot: " + tuloskortti.ihanneTulos()

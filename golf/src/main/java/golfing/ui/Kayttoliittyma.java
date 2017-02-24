@@ -94,11 +94,21 @@ public class Kayttoliittyma implements Runnable {
         piirtoalusta = new Piirtoalusta(kike, pituus);
         kortit.add(piirtoalusta, "pelinakyma");
 
+        BorderLayout menuLayout = new BorderLayout();
+        JPanel menupaneeli = new JPanel(menuLayout);
+
         ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
         JButton vaylanVaihtoNappi = new JButton(kumpulakartta);
         vahvistusNappi.setName("Vaihda väylää");
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
-        kortit.add(vaylanVaihtoNappi, "menu");
+
+        JButton kiekonVaihtoNappi = new JButton("Vaihda kiekkoa");
+        kiekonVaihtoNappi.addActionListener(new Kiekonvaihtonapinkuuntelija(kike, kiekonVaihtoNappi));
+
+        menupaneeli.add(vaylanVaihtoNappi, BorderLayout.CENTER);
+        menupaneeli.add(kiekonVaihtoNappi, BorderLayout.NORTH);
+
+        kortit.add(menupaneeli, "menu");
 
         Tuloskortinpiirtaja tuloskortinpiirtaja = new Tuloskortinpiirtaja(kike);
         kortit.add(tuloskortinpiirtaja, "tuloskortti");

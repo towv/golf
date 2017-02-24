@@ -45,7 +45,7 @@ public class PelaajaTest {
     @Test
     public void pelaajanKiekot() {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
-        pelaaja.lisaaKiekko();
+        pelaaja.lisaaKiekot();
         assertEquals(pelaaja.getKiekko("draiveri").getNimi(), "draiveri");
     }
 
@@ -60,26 +60,39 @@ public class PelaajaTest {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
         assertEquals(pelaaja.getHeitto().toString(), "0nullfalse");
     }
-    
+
     @Test
-    public void kaytossaOlevanKiekonVari() {
+    public void kaytossaOlevaKiekkoJaVaihto() {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
-        pelaaja.lisaaKiekko();
-        assertEquals(pelaaja.getKaytossaOlevanKiekonVari(), Vari.LIILA);
+        pelaaja.lisaaKiekot();
+        assertEquals(pelaaja.getKaytossaOlevaKiekko().getNimi(), "draiveri");
+        pelaaja.vaihdaKiekkoa();
+        assertEquals(pelaaja.getKaytossaOlevaKiekko().getNimi(), "midari");
+        pelaaja.vaihdaKiekkoa();
+        assertEquals(pelaaja.getKaytossaOlevaKiekko().getNimi(), "putteri");
+        pelaaja.vaihdaKiekkoa();
+        assertEquals(pelaaja.getKaytossaOlevaKiekko().getNimi(), "draiveri");
     }
-    
+//    
+//    @Test
+//    public void kaytossaOlevanKiekonVari() {
+//        Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
+//        pelaaja.lisaaKiekot();
+//        assertEquals(pelaaja.getKaytossaOlevanKiekonVari(), Vari.LIILA);
+//    }
+
     @Test
     public void haePelaajanSijaintiPalauttaaOikeinALussa() {
         Pelaaja pelaaja = new Pelaaja("nimi", 0, 0);
         assertEquals(pelaaja.getSijainti().toString(), "0-3");
     }
-    
+
     @Test
     public void haePelaajanSijainti() {
         Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);
         assertEquals(pelaaja.getSijainti().toString(), "1017");
     }
-    
+
     @Test
     public void asetaNimiTesti() {
         Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);
@@ -87,7 +100,7 @@ public class PelaajaTest {
         pelaaja.setNimi("Super-Pelaaja");
         assertEquals(pelaaja.getNimi(), "Super-Pelaaja");
     }
-    
+
     @Test
     public void nollaaHeitotTesti() {
         Pelaaja pelaaja = new Pelaaja("nimi", 20, 20);

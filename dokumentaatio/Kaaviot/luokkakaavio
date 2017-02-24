@@ -35,3 +35,5 @@
 [Tuloskortinpiirtaja]implements-.-^[<<interface>>Paivitettava]
 [Pelaaja]*->1[<<enumeration>> Vari]
 [Tuloskortti]*->1[Rata]
+[Kiekonvaihtonapinkuuntelija]1->1[Kayttoliittyma]
+[Kiekonvaihtonapinkuuntelija]1->1[Kiekkopeli]

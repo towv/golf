@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 22,
-             Errors: 1,
+      <title>File: 23,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.Nappaimistonkuuntelija.java">golfing/gui/Nappaimistonkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.rata.Rata.java">golfing/rata/Rata.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.rata.Rata.java">golfing/rata/Rata.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Nappaimistonkuuntelija.java">golfing/ui/Nappaimistonkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -88,20 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.VaylaNapinKuuntelija.java">golfing/gui/VaylaNapinKuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#golfing.kiekko.Vari.java">golfing/kiekko/Vari.java</a>
                 </td>
                 <td>
@@ -116,7 +102,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.TuloskortinKuuntelija.java">golfing/gui/TuloskortinKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Tuloskortinkuuntelija.java">golfing/ui/Tuloskortinkuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Napinkuuntelija.java">golfing/ui/Napinkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -158,7 +158,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.TuloskortinPiirtaja.java">golfing/gui/TuloskortinPiirtaja.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Piirtoalusta.java">golfing/ui/Piirtoalusta.java</a>
                 </td>
                 <td>
                   0
@@ -172,7 +172,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.Piirtoalusta.java">golfing/gui/Piirtoalusta.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Tuloskortinpiirtaja.java">golfing/ui/Tuloskortinpiirtaja.java</a>
                 </td>
                 <td>
                   0
@@ -242,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.Napinkuuntelija.java">golfing/gui/Napinkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Kayttoliittyma.java">golfing/ui/Kayttoliittyma.java</a>
                 </td>
                 <td>
                   0
@@ -284,6 +284,34 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Kiekonvaihtonapinkuuntelija.java">golfing/ui/Kiekonvaihtonapinkuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Paivitettava.java">golfing/ui/Paivitettava.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#golfing.kiekko.Kiekko.java">golfing/kiekko/Kiekko.java</a>
                 </td>
                 <td>
@@ -293,7 +321,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -307,26 +335,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.Paivitettava.java">golfing/gui/Paivitettava.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.Kayttoliittyma.java">golfing/gui/Kayttoliittyma.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Alkunaytonkuuntelija.java">golfing/ui/Alkunaytonkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -340,7 +354,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.gui.AlkunaytonKuuntelija.java">golfing/gui/AlkunaytonKuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.ui.Vaylanapinkuuntelija.java">golfing/ui/Vaylanapinkuuntelija.java</a>
                 </td>
                 <td>
                   0

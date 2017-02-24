@@ -9,8 +9,9 @@ package golfing.kiekko;
 public class Kiekko {
 
     private String nimi;
-    private int liito;
     private int nopeus;
+    private int liito;
+    private int vakaus;
     private int loppufeidi;
     private Vari vari;
     private Sijainti sijainti;
@@ -43,6 +44,27 @@ public class Kiekko {
         this.loppufeidi = 0;
         this.vari = Vari.LIILA;
         this.sijainti = new Sijainti(xalussa, yalussa);
+    }
+
+    /**
+     * Kiekon edistynein konstruktori, mahdollisesti korvaa muut.
+     *
+     * @param nimi Kiekon nimi.
+     * @param nopeus Kiekon nopeus.
+     * @param liito Kiekon liito.
+     * @param vakaus Kiekon vakaus.
+     * @param loppufeidi Kiekon loppufeidi.
+     * @param vari Kiekon vari.
+     * @param sijainti kiekon sijainti.
+     */
+    public Kiekko(String nimi, int nopeus, int liito, int vakaus, int loppufeidi, Vari vari, Sijainti sijainti) {
+        this.nimi = nimi;
+        this.nopeus = nopeus;
+        this.liito = liito;
+        this.vakaus = vakaus;
+        this.loppufeidi = loppufeidi;
+        this.vari = vari;
+        this.sijainti = sijainti;
     }
 
     /**
@@ -139,6 +161,14 @@ public class Kiekko {
      */
     public Vari getVari() {
         return vari;
+    }
+
+    public void setVari(Vari vari) {
+        this.vari = vari;
+    }
+
+    public int getVakaus() {
+        return vakaus;
     }
 
     /**
