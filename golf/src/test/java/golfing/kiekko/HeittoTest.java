@@ -261,6 +261,8 @@ public class HeittoTest {
         assertEquals(heitto.getSuunta(), Suunta.SOUTH);
         heitto.sMutka(1);
         assertEquals(heitto.getSuunta(), Suunta.SOUTHEAST);
+        heitto.sMutka(0);
+        assertEquals(heitto.getSuunta(), Suunta.SOUTHEAST);
     }
 
     @Test
@@ -287,6 +289,7 @@ public class HeittoTest {
         heitto.syotaSuunta(Suunta.SOUTH);
         heitto.syotaSuunta(Suunta.SOUTH);
         heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.SOUTH);
         heitto.feidaa(0, 0);
         assertEquals(heitto.getSuunta(), Suunta.SOUTH);
         heitto.feidaa(-1, 10);
@@ -294,5 +297,21 @@ public class HeittoTest {
         assertEquals(heitto.getVoima(), 10);
         heitto.feidaa(1, 5);
         assertEquals(heitto.getSuunta(), Suunta.SOUTH);
+    }
+    
+    @Test
+    public void heittoFeidaa() {
+        Heitto heitto = new Heitto(0);
+        heitto.feidaa(1, 8);
+        assertEquals(heitto.getVoima(), 8);
+        heitto.syotaSuunta(Suunta.NORTHWEST);
+        heitto.syotaSuunta(Suunta.NORTHWEST);
+        heitto.vahvistaHeitto();
+        assertEquals(heitto.getSuunta(), Suunta.NORTHWEST);
+        heitto.feidaa(-1, 3);
+        assertEquals(heitto.getSuunta(), Suunta.WEST);
+        heitto.feidaa(1, 3);
+        assertEquals(heitto.getSuunta(), Suunta.NORTHWEST);
+        assertEquals(heitto.getVoima(), 3);
     }
 }

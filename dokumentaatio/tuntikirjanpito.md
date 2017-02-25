@@ -29,3 +29,4 @@ Päivä | Tunnit | Kuvaus
 22.02.2017 | 0.5h | Jar
 23.02.2017 | 4.0h | Kiekon ominaisuudet käyttöön, koodia, testejä ja javadoccia
 24.02.2017 | 2.0h | Dokumentaation päivitystä
+25.02.2017 | 1.0h | Testejä
