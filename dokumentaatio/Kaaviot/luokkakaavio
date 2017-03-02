@@ -6,14 +6,14 @@
 [Piirtoalusta]1-1[Kayttoliittyma]
 [Piirtoalusta]implements-.-^[<<interface>>Paivitettava]
 [Kiekkopeli|-forname:string;surname:string|doShiz()]1-orders*>[Pelaaja], 
-[Kiekkopeli]*-*[Radat], 
-[Pelaaja]++-0..*>[Heitto], 
+[Kiekkopeli]*-*[Radat]
+[Pelaaja]++-0..1>[Heitto]
 [Pelaaja]-[Kiekko]
 [Pelaaja]1->1[Sijainti]
-[Heitto]1->[<<enumeration>>Suunta]
-[Kiekko]1->[Sijainti]
+[Heitto]*->*[<<enumeration>>Suunta]
+[Kiekko]1->1[Sijainti]
 [Kiekko]*-1[<<enumeration>> Vari]
-[Radat]<>->[Rata]
+[Radat]<>->*[Rata]
 [Rata]1-*[Vayla]
 [Vayla]1-1[Kori]
 [Kori]extends->[Sijainti]
@@ -33,7 +33,6 @@
 [Kayttoliittyma]1-1[Kiekkopeli]
 [Tuloskortinpiirtaja]use-.->[Tuloskortti]
 [Tuloskortinpiirtaja]implements-.-^[<<interface>>Paivitettava]
-[Pelaaja]*->1[<<enumeration>> Vari]
 [Tuloskortti]*->1[Rata]
 [Kiekonvaihtonapinkuuntelija]1->1[Kayttoliittyma]
 [Kiekonvaihtonapinkuuntelija]1->1[Kiekkopeli]

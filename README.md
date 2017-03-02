@@ -15,7 +15,7 @@ Kiekko heitetään koriin.
 
 [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/Checkstyle-raportit/site/checkstyle.html)
 
-Checkstyle FileLength Error johtuvat javadocista. (mittasin) (lisähuomautuksena refaktoroin juuri hieman tämä saattoi pidentää Kiekkopeli luokkaa)
+Checkstyle FileLength Error johtuvat javadocista. (mittasin)
 
 [PIT-raportti](https://htmlpreview.github.io/?https://github.com/towv/golf/blob/master/dokumentaatio/pit/201703022117/index.html)
 
