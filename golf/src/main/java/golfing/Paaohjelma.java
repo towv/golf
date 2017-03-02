@@ -8,11 +8,11 @@ import java.util.Scanner;
 import javax.swing.SwingUtilities;
 
 /**
- * Main-luokka. Kiekkopeli-olion ja käynnistää
+ * Paaohjelma-luokka. Kiekkopeli-olion ja käynnistää
  * graafisen käyttöliittymän.
  *
  */
-public class Main {
+public class Paaohjelma {
 
     /**
      *

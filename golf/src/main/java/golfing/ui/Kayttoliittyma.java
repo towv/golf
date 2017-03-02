@@ -1,12 +1,12 @@
 package golfing.ui;
 
-import golfing.listeners.Vaylanapinkuuntelija;
-import golfing.listeners.Tuloskortinkuuntelija;
-import golfing.listeners.Nappaimistonkuuntelija;
-import golfing.listeners.Menunkuuntelija;
-import golfing.listeners.Napinkuuntelija;
-import golfing.listeners.Kiekonvaihtonapinkuuntelija;
-import golfing.listeners.Alkunaytonkuuntelija;
+import golfing.kuuntelija.Vaylanapinkuuntelija;
+import golfing.kuuntelija.Tuloskortinkuuntelija;
+import golfing.kuuntelija.Nappaimistonkuuntelija;
+import golfing.kuuntelija.Menunkuuntelija;
+import golfing.kuuntelija.Napinkuuntelija;
+import golfing.kuuntelija.Kiekonvaihtonapinkuuntelija;
+import golfing.kuuntelija.Alkunaytonkuuntelija;
 import golfing.peli.Kiekkopeli;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;

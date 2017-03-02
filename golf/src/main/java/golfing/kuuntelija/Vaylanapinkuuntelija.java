@@ -1,4 +1,4 @@
-package golfing.listeners;
+package golfing.kuuntelija;
 
 import golfing.peli.Kiekkopeli;
 import java.awt.event.ActionEvent;

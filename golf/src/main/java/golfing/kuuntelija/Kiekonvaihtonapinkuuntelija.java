@@ -1,4 +1,4 @@
-package golfing.listeners;
+package golfing.kuuntelija;
 
 import golfing.kiekko.Pelaaja;
 import golfing.peli.Kiekkopeli;

@@ -1,4 +1,4 @@
-package golfing.listeners;
+package golfing.kuuntelija;
 
 import golfing.ui.Tuloskortinpiirtaja;
 import java.awt.event.ActionEvent;
