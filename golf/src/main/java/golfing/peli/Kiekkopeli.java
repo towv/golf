@@ -141,6 +141,8 @@ public class Kiekkopeli extends Timer implements ActionListener {
         this.jatkuu = true;
         this.kiekko.setSijainti(new Sijainti(leveys / 2, korkeus - 3));
         this.pelaaja.nollaaHeitot();
+        this.pelaaja.setHeitto(null);
+        this.heitto = null;
     }
 
     /**

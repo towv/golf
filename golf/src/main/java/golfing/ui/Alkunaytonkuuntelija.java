@@ -10,8 +10,8 @@ import javax.swing.JTextField;
 
 /**
  *
- * Alkunäytönkuuntelija. Kuuntelee alkunäyttöä. 
- * Käyttäjän nimi ja radannimi käyttäjän syötteen mukaan.
+ * Alkunäytönkuuntelija. Kuuntelee alkunäyttöä. Käyttäjän nimi ja radannimi
+ * käyttäjän syötteen mukaan.
  */
 public class Alkunaytonkuuntelija implements ActionListener {
 
@@ -22,7 +22,8 @@ public class Alkunaytonkuuntelija implements ActionListener {
     private JPanel kortit;
 
     /**
-     * Konstruktori. 
+     * Konstruktori.
+     *
      * @param kayttajanNimi Tekstialue käyttäjän nimen syöttämistä varten.
      * @param radanNimi Tekstialue radan nimen syöttämistä varten.
      * @param kiekkopeli Pelattava peli
@@ -43,10 +44,13 @@ public class Alkunaytonkuuntelija implements ActionListener {
 
         if (kayttajanNimi.getText().isEmpty()) {
             kayttajanNimi.setText("Nimeä ei voi jättää tyhjäksi!");
-        } else if (kayttajanNimi.getText().equals("Nimeä ei voi jättää tyhjäksi!") 
+        } else if (kayttajanNimi.getText().equals("Nimeä ei voi jättää tyhjäksi!")
                 || kayttajanNimi.getText().equals("Syötä tähän nimesi")
-                || kayttajanNimi.getText().equals("Anna nimesi")) {
+                || kayttajanNimi.getText().equals("Anna nimesi")
+                || kayttajanNimi.getText().equals("Liian pitkä nimi, max 15 merkkiä")) {
             kayttajanNimi.setText("Anna nimesi");
+        } else if (kayttajanNimi.getText().length() > 15) {
+            kayttajanNimi.setText("Liian pitkä nimi, max 15 merkkiä");
         } else {
             kiekkopeli.getPelaaja().setNimi(kayttajanNimi.getText());
             kayttajanNimiSyotetty = true;

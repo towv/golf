@@ -8,7 +8,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.HashSet;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -101,19 +102,22 @@ public class Kayttoliittyma implements Runnable {
         BorderLayout menuLayout = new BorderLayout();
         JPanel menupaneeli = new JPanel(menuLayout);
 
+        HashMap<String, ImageIcon> vaylakartat = new HashMap<>();
         InputStream is = getClass().getClassLoader().getResourceAsStream("kumpulakartta.jpeg");
-//        Scanner lukija = new Scanner(is);
+        //        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
         BufferedImage bf = null;
         try {
-        bf = ImageIO.read(is);
+            bf = ImageIO.read(is);
         } catch (Exception b) {
-            
+
         }
         ImageIcon kumpulakartta = new ImageIcon(bf.getScaledInstance(400, 400, 400));
-//        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
-        JButton vaylanVaihtoNappi = new JButton(kumpulakartta);
-        vahvistusNappi.setName("Vaihda väylää");
+
+        vaylakartat.put("kumpula", kumpulakartta);
+
+        JButton vaylanVaihtoNappi = new JButton();
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
+        menu.addActionListener(new Menunkuuntelija(kike, vaylanVaihtoNappi, vaylakartat));
 
         JButton kiekonVaihtoNappi = new JButton("Vaihda kiekkoa");
         kiekonVaihtoNappi.addActionListener(new Kiekonvaihtonapinkuuntelija(kike, kiekonVaihtoNappi));

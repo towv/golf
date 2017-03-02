@@ -3,6 +3,11 @@ package golfing.ui;
 import golfing.peli.Kiekkopeli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
