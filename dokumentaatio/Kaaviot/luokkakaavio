@@ -37,3 +37,5 @@
 [Tuloskortti]*->1[Rata]
 [Kiekonvaihtonapinkuuntelija]1->1[Kayttoliittyma]
 [Kiekonvaihtonapinkuuntelija]1->1[Kiekkopeli]
+[Menunkuuntelija]1->1[Kayttoliittyma]
+[Menunkuuntelija]1->1[Kiekkopeli]

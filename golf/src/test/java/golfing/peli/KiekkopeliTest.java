@@ -144,7 +144,7 @@ public class KiekkopeliTest {
 
     @Test
     public void getRadatTesti() {
-        assertEquals(kiekkopeli.getRadat().getRadat().size(), 1);
+        assertEquals(kiekkopeli.getRadat().getRadat().size(), 2);
     }
 
     @Test
@@ -174,6 +174,8 @@ public class KiekkopeliTest {
         kiekkopeli.vaihdaVaylaa();
         kiekkopeli.vaihdaVaylaa();
         assertEquals(kiekkopeli.getKori().toString(), "104");
+        assertEquals(kiekkopeli.getHeitto(), null);
+        assertEquals(kiekkopeli.getPelaaja().getHeitto(), null);
     }
 
     @Test

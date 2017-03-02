@@ -1,0 +1,46 @@
+title Heittäminen, kiekon liike: Voima=1, Suunta.NORTH, Kiekko="draiveri"
+
+Kiekkopeli->Pelaaja: getHeitto()
+Pelaaja-->Kiekkopeli: Heitto
+Kiekkopeli->Kiekkopeli: this.heitto = Heitto
+Kiekkopeli->Heitto: isUusiHeitto()
+Heitto-->Kiekkopeli: true
+Kiekkopeli->Heitto: getTiiaus()
+Heitto-->Kiekkopeli: true
+Kiekkopeli->Heitto: setUusiHeitto(false)
+Heitto->Heitto: this.uusiHeitto = false
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 1
+Kiekkopeli->Kiekko: getNopeus()
+Kiekko-->Kiekkopeli: 10
+Kiekkopeli->Heitto: getPuolivali()
+Heitto-->Kiekkopeli: -1
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 1
+Kiekkopeli->Heitto: getPuolivali()
+Heitto-->Kiekkopeli: -1
+Kiekkopeli->Kiekko: getVakaus()
+Kiekko-->Kiekkopeli: 1
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 1
+Kiekkopeli->Heitto: getTiiaus()
+Heitto->Kiekkopeli: true
+Kiekkopeli->Heitto: getSuunta()
+Heitto-->Kiekkopeli: Suunta.NORTH
+Kiekkopeli->Kiekko: liiku(Suunta.NORTH)
+Kiekko->Sijainti: this.sijainti.getY()
+Sijainti-->Kiekko: Y
+Kiekko->Sijainti: setY(Y-1)
+Sijainti->Sijainti: y = y
+Kiekkopeli->Heitto: vahennaVoimaa()
+Heitto->Heitto: this.voima= this.voima - 1
+Kiekkopeli->Heitto: isFeidaa()
+Heitto-->Kiekkopeli: false
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 0
+Kiekkopeli->Heitto: getVoima()
+Heitto-->Kiekkopeli: 0
+Kiekkopeli->Pelaaja: setHeitto(null)
+Pelaaja->Pelaaja: this.heitto = null
+Kiekkopeli->Kiekkopeli: this.heitto = null
+Kiekkopeli->Paivitettava: paivita()

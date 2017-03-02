@@ -36,19 +36,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.red);
-        g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        g.drawString("" + kiekkopeli.getTilanne(), 0, 20);
+        pelitilanne(g);
 
-        String viesti = kiekkopeli.getViesti();
-        String[] rivit = viesti.split("\n");
-        String rivi1 = rivit[0];
-        String rivi2 = rivit[1];
-
-        g.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
-        g.drawString(rivi1, 0, 350);
-        g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        g.drawString(rivi2, 0, 380);
+        viestiKayttajalle(g);
 
         g.setColor(Color.ORANGE);
         g.fillRect(130, 210, 15, 100);
@@ -59,6 +49,30 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.setColor(Color.BLACK);
         g.fillOval(kiekkopeli.getKori().getX() * kiekonLeveys, kiekkopeli.getKori().getY() * kiekonLeveys, kiekonLeveys * 2, kiekonLeveys * 2);
 
+        kiekonVari(g);
+
+        g.fillOval(kiekkopeli.getKiekko().getSijainti().getX() * kiekonLeveys, kiekkopeli.getKiekko().getSijainti().getY() * kiekonLeveys, kiekonLeveys, kiekonLeveys);
+    }
+
+    private void pelitilanne(Graphics g) {
+        g.setColor(Color.red);
+        g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        g.drawString("" + kiekkopeli.getTilanne(), 0, 20);
+    }
+
+    private void viestiKayttajalle(Graphics g) {
+        String viesti = kiekkopeli.getViesti();
+        String[] rivit = viesti.split("\n");
+        String rivi1 = rivit[0];
+        String rivi2 = rivit[1];
+        
+        g.setFont(new Font("Comic Sans MS", Font.BOLD, 24));
+        g.drawString(rivi1, 0, 350);
+        g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        g.drawString(rivi2, 0, 380);
+    }
+
+    private void kiekonVari(Graphics g) {
         this.kiekonVari = kiekkopeli.getPelaaja().getKaytossaOlevaKiekko().getVari();
         if (kiekonVari == Vari.LIILA) {
             g.setColor(Color.MAGENTA);
@@ -67,8 +81,6 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         } else if (kiekonVari == Vari.SININEN) {
             g.setColor(Color.BLUE);
         }
-
-        g.fillOval(kiekkopeli.getKiekko().getSijainti().getX() * kiekonLeveys, kiekkopeli.getKiekko().getSijainti().getY() * kiekonLeveys, kiekonLeveys, kiekonLeveys);
     }
 
     /**

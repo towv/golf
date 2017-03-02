@@ -38,24 +38,27 @@ public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
 
         g.drawString("" + tuloskortti.getTulosRata(), 10, 25);
 
-        g.setColor(Color.yellow);
-        g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        HashMap<Integer, String> tulokset = pelaajanTulosVaylilta(g, tuloskortti);
 
-        HashMap<Integer, String> tulokset = tuloskortti.getTuloksetString();
-        int i = 1;
-        for (String value : tulokset.values()) {
-            i++;
-            g.drawString(value, 5, 40 + 20 * i);
+        ihanneHeitotJaPelaajanHeitot(g, tuloskortti);
+
+        pelaajanTulos(tuloskortti, g);
+
+        if (tuloskortti.radanPituus() == tulokset.size()) {
+            g.setColor(Color.magenta);
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+            g.drawString("KIERROS PELATTU", 0, 500);
         }
+    }
 
-//        for (int i = 1; i <= tulokset.size(); i++) {
-//            g.drawString(tulokset.get(i), 5, 40 + 20 * i);
-//        }
+    private void ihanneHeitotJaPelaajanHeitot(Graphics g, Tuloskortti tuloskortti) {
         g.setColor(Color.blue);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         g.drawString("Ihanne heitot: " + tuloskortti.ihanneTulos()
                 + "  Pelaajan: " + tuloskortti.yhteisTulos(), 0, 350);
+    }
 
+    private void pelaajanTulos(Tuloskortti tuloskortti, Graphics g) {
         int tulos = tuloskortti.yhteisTulos() - tuloskortti.ihanneTulos();
         String plus = "";
         if (tulos > 0) {
@@ -64,12 +67,18 @@ public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
         g.setColor(Color.blue);
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         g.drawString("Pelaajan tulos: " + plus + tulos, 0, 380);
+    }
 
-        if (tuloskortti.radanPituus() == tulokset.size()) {
-            g.setColor(Color.magenta);
-            g.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-            g.drawString("KIERROS PELATTU", 0, 500);
+    private HashMap<Integer, String> pelaajanTulosVaylilta(Graphics g, Tuloskortti tuloskortti) {
+        g.setColor(Color.yellow);
+        g.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        HashMap<Integer, String> tulokset = tuloskortti.getTuloksetString();
+        int i = 1;
+        for (String value : tulokset.values()) {
+            i++;
+            g.drawString(value, 5, 40 + 20 * i);
         }
+        return tulokset;
     }
 
     /**

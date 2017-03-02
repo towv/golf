@@ -1,20 +1,25 @@
 package golfing.ui;
 
+import golfing.listeners.Vaylanapinkuuntelija;
+import golfing.listeners.Tuloskortinkuuntelija;
+import golfing.listeners.Nappaimistonkuuntelija;
+import golfing.listeners.Menunkuuntelija;
+import golfing.listeners.Napinkuuntelija;
+import golfing.listeners.Kiekonvaihtonapinkuuntelija;
+import golfing.listeners.Alkunaytonkuuntelija;
 import golfing.peli.Kiekkopeli;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.HashMap;
-import java.util.HashSet;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -63,62 +68,78 @@ public class Kayttoliittyma implements Runnable {
 
         CardLayout layout = new CardLayout();
         JPanel kortit = new JPanel(layout);
-
+        // Välilehti napit
         JButton alku = new JButton("Aloitusnäyttö");
         JButton menu = new JButton("Menu");
         JButton peli = new JButton("Peli");
         JButton tuloskortti = new JButton("Tuloskortti");
 
         JPanel nappiPaneeli = new JPanel();
-
+        
         lisaaNapitPaneeliin(nappiPaneeli, alku, menu, peli, tuloskortti);
 
         lisaaKuuntelijatValilehtiNapeille(alku, layout, kortit, menu, peli, tuloskortti);
-
+        // Pelaamisen kuuntelija
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getPelaaja());
         peli.addKeyListener(kuuntelija);
-
+        // Alku-ikkuna
         BorderLayout alkulayout = new BorderLayout();
         JTextField pelaajanNimi = new JTextField("Syötä tähän nimesi");
-        JTextField radanNimi = new JTextField("Syötä tähän valitsemasi rata, vaihtoehdot tänään: "
-                + kike.getRadat().getRadat().keySet());
-        JButton vahvistusNappi = new JButton("Vahvista tästä, ja siirry peli-ikkunaan hiirellä");
+        String[] ratavaihtoehdot = {"Ratavaihtoehdot tänään: " + kike.getRadat().getRadat().keySet(), "Pasila", "Kumpula"};
+        JComboBox radanNimi = new JComboBox(ratavaihtoehdot);
+        radanNimi.setSelectedIndex(0);
 
-//        JButton ohje = new JButton("Ohjeet");
-//        JButton kiekonValinta = new JButton("Valitse kiekot");
+        JButton vahvistusNappi = new JButton();
+
         vahvistusNappi.addActionListener(new Alkunaytonkuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
 
         JPanel alkupaneeli = new JPanel(alkulayout);
         alkupaneeli.add(pelaajanNimi, BorderLayout.NORTH);
         alkupaneeli.add(radanNimi, BorderLayout.SOUTH);
         alkupaneeli.add(vahvistusNappi, BorderLayout.CENTER);
-//        alkupaneeli.add(ohje, BorderLayout.WEST);
+// Laajennukseen eri olosuhteet eri päivinä ja kustomoidut kiekot
+//        alkupaneeli.add(viikonPaiva, BorderLayout.WEST);
 //        alkupaneeli.add(kiekonValinta, BorderLayout.EAST);
         kortit.add(alkupaneeli, "alkuvalikko");
-
+        // Peli-ikkuna
         piirtoalusta = new Piirtoalusta(kike, pituus);
         kortit.add(piirtoalusta, "pelinakyma");
-
+        // Menu -ikkuna
         BorderLayout menuLayout = new BorderLayout();
         JPanel menupaneeli = new JPanel(menuLayout);
 
-        HashMap<String, ImageIcon> vaylakartat = new HashMap<>();
         InputStream is = getClass().getClassLoader().getResourceAsStream("kumpulakartta.jpeg");
-        //        ImageIcon kumpulakartta = new ImageIcon("src/main/resources/kumpulakartta.jpeg");
+        InputStream ps = getClass().getClassLoader().getResourceAsStream("pasilakartta.jpeg");
+        InputStream as = getClass().getClassLoader().getResourceAsStream("aloituskuva.jpeg");
+
         BufferedImage bf = null;
+        BufferedImage af = null;
+        BufferedImage pf = null;
         try {
             bf = ImageIO.read(is);
+            af = ImageIO.read(as);
+            pf = ImageIO.read(ps);
         } catch (Exception b) {
 
         }
         ImageIcon kumpulakartta = new ImageIcon(bf.getScaledInstance(400, 400, 400));
+        ImageIcon pasilakartta = new ImageIcon(pf.getScaledInstance(400, 400, 400));
+        // Aloituskuva, liittyy aloitusvälilehteen, mutta muiden kuvien kanssa samassa kohdassa
+        ImageIcon aloituskuva = new ImageIcon(af.getScaledInstance(420, 550, 500));
+        vahvistusNappi.setIcon(aloituskuva);
 
+        if (af == null) {
+            vahvistusNappi.setText("Vahvista tästä, ja siirry peli-ikkunaan hiirellä");
+        }
+
+        HashMap<String, ImageIcon> vaylakartat = new HashMap<>();
         vaylakartat.put("kumpula", kumpulakartta);
+        vaylakartat.put("pasila", pasilakartta);
 
         JButton vaylanVaihtoNappi = new JButton();
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
         menu.addActionListener(new Menunkuuntelija(kike, vaylanVaihtoNappi, vaylakartat));
-
+        
         JButton kiekonVaihtoNappi = new JButton("Vaihda kiekkoa");
         kiekonVaihtoNappi.addActionListener(new Kiekonvaihtonapinkuuntelija(kike, kiekonVaihtoNappi));
 
@@ -126,7 +147,7 @@ public class Kayttoliittyma implements Runnable {
         menupaneeli.add(kiekonVaihtoNappi, BorderLayout.NORTH);
 
         kortit.add(menupaneeli, "menu");
-
+        // Tuloskortti -välilehti
         Tuloskortinpiirtaja tuloskortinpiirtaja = new Tuloskortinpiirtaja(kike);
         kortit.add(tuloskortinpiirtaja, "tuloskortti");
         tuloskortti.addActionListener(new Tuloskortinkuuntelija(tuloskortinpiirtaja));
@@ -136,9 +157,6 @@ public class Kayttoliittyma implements Runnable {
         frame.add(kortit);
 
         frame.add(nappiPaneeli, BorderLayout.SOUTH);
-
-//        container.add(piirtoalusta);
-//        frame.addKeyListener(kuuntelija);
     }
 
     private void lisaaNapitPaneeliin(JPanel nappiPaneeli, JButton alku, JButton menu, JButton peli, JButton tuloskortti) {
@@ -169,13 +187,5 @@ public class Kayttoliittyma implements Runnable {
      */
     public JFrame getFrame() {
         return frame;
-    }
-
-    class PanelOne extends JPanel {
-
-        public PanelOne() {
-            setBackground(Color.GREEN);
-            add(new JLabel("Panel one"));
-        }
     }
 }
