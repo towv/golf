@@ -44,6 +44,10 @@ public class Tuloskortinpiirtaja extends JPanel implements Paivitettava {
 
         pelaajanTulos(tuloskortti, g);
 
+        kokoRataPelattu(tuloskortti, tulokset, g);
+    }
+
+    private void kokoRataPelattu(Tuloskortti tuloskortti, HashMap<Integer, String> tulokset, Graphics g) {
         if (tuloskortti.radanPituus() == tulokset.size()) {
             g.setColor(Color.magenta);
             g.setFont(new Font("Comic Sans MS", Font.BOLD, 30));

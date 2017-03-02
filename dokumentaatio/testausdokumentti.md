@@ -11,6 +11,6 @@ Kuuntelijat (Listener) ja GUI on jätetty testaamatta automaattisesti, ja Action
 Bugit:
 
 
--Visuaalinen "bugi", kun peliä pelaa painuu 'peli' -välilehden nappi 'space' -näppäintä painaessa. Kertoopahan, että olet oikealla välilehdellä. Tähän liittyy nimittäin se, että peli-välilehti tulee olla valittuna, jotta voi pelata. Kuuluu siis asiaan, olisi helpostikin muutettavissa, eikä häiritse minua.
+-Visuaalinen "bugi", kun peliä pelaa painuu 'peli' -välilehden nappi 'space' -näppäintä painaessa. Kertoopahan, että olet oikealla välilehdellä. Tähän liittyy nimittäin se, että peli-välilehti tulee olla valittuna, jotta voi pelata. Kuuluu siis asiaan, olisi helpostikin muutettavissa, eikä häiritse minua. Tosin automaattinen sivun vaihto on melko turha, sillä kuten ohjeessa lukee, tulee silti valita peli-välilehti hiirellä.
 
 -Visuaalinen "bugi", kiekon osuessa koriin liian lujaa(voima>3) jatkaa se liikettä vielä yhden liikkeen verran. Tämä aiheutui aluksi vahingossa ja päätin tehdä siitä ominaisuuden, kun olin jo etukäteen suunnitellut, että pelaajalle tulee "lisäheitto" niin kaipa kiekonkin sietää liikkua. Se kuitenkin voi joskus liikkua korin ulkopuolelle sen sijaan, että liikkuisi vain eteenpäin korin sisällä, osumakohdasta ja liikkumissuunnasta riippuen.
