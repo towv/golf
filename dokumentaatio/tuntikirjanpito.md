@@ -32,4 +32,5 @@ Päivä | Tunnit | Kuvaus
 25.02.2017 | 1.0h | Testejä
 28.02.2017 | 2.0h | Viilausta
 01.03.2017 | 0.5h | Bugikorjausta
-02.03.2017 | 7.0h | Kuva alkunäyttöön, uusi rata, testejä, bugikorjausta, refaktorointia, viilausta, dokumentaatiota, palautuskuntoon
+02.03.2017 | 10.0h | Kuva alkunäyttöön, uusi rata, testejä, bugikorjausta, refaktorointia, viilausta, dokumentaatiota, palautuskuntoon
+03.03.2017 | 2.0h | Loppupalautuksen viimeistely
