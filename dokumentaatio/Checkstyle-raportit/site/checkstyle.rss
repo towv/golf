@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Menunkuuntelija.java">golfing/listeners/Menunkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Menunkuuntelija.java">golfing/kuuntelija/Menunkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -88,21 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Vaylanapinkuuntelija.java">golfing/listeners/Vaylanapinkuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Napinkuuntelija.java">golfing/listeners/Napinkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Alkunaytonkuuntelija.java">golfing/kuuntelija/Alkunaytonkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -117,6 +103,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#golfing.kiekko.Vari.java">golfing/kiekko/Vari.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Napinkuuntelija.java">golfing/kuuntelija/Napinkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -186,20 +186,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Nappaimistonkuuntelija.java">golfing/listeners/Nappaimistonkuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#golfing.rata.Radat.java">golfing/rata/Radat.java</a>
                 </td>
                 <td>
@@ -214,35 +200,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Tuloskortinkuuntelija.java">golfing/listeners/Tuloskortinkuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Alkunaytonkuuntelija.java">golfing/listeners/Alkunaytonkuuntelija.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#golfing.listeners.Kiekonvaihtonapinkuuntelija.java">golfing/listeners/Kiekonvaihtonapinkuuntelija.java</a>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Nappaimistonkuuntelija.java">golfing/kuuntelija/Nappaimistonkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -271,6 +229,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#golfing.kiekko.Kori.java">golfing/kiekko/Kori.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Tuloskortinkuuntelija.java">golfing/kuuntelija/Tuloskortinkuuntelija.java</a>
                 </td>
                 <td>
                   0
@@ -340,7 +312,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Kiekonvaihtonapinkuuntelija.java">golfing/kuuntelija/Kiekonvaihtonapinkuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#golfing.ui.Paivitettava.java">golfing/ui/Paivitettava.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#golfing.kuuntelija.Vaylanapinkuuntelija.java">golfing/kuuntelija/Vaylanapinkuuntelija.java</a>
                 </td>
                 <td>
                   0

@@ -72,6 +72,7 @@ public class Alkunaytonkuuntelija implements ActionListener {
         // Oikea syöte, pelinäkymään
         if (kayttajanNimiSyotetty && valittuOnRata) {
             layout.show(kortit, "pelinakyma");
+            
         }
     }
 

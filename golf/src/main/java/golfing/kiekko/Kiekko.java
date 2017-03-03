@@ -198,7 +198,5 @@ public class Kiekko {
             this.sijainti.setY(this.sijainti.getY() + 1);
             this.sijainti.setX(this.sijainti.getX() - 1);
         }
-
     }
-
 }

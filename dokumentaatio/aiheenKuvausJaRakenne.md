@@ -21,6 +21,7 @@ Pelaajalle annetaan mahdollisuus valikoida kiekkojensa statsit.
 
 **Kaaviot:** 
 
+Vaihtoehtona olisi toki ollut antaa kuuntelijoille parametrina käyttöliittymä, ja hakea käyttöliittymän kautta kiekkopeli niin luokkakaavio näyttäisi kivemmalta. Ei kuitenkaan käytännön merkitystä.
 ![Luokkakaavio](Kaaviot/luokkakaavio.png)
 ![Sekvenssikaavio: Nappaimistonkuuntelija](Kaaviot/Sekvenssikaaviot/heitto_yksi_suunta.png)
 ![Sekvenssikaavio: Kiekkopeli actionevent](Kaaviot/Sekvenssikaaviot/Kiekkopeli_Actionevent_Voima1.png)
@@ -31,7 +32,7 @@ Kiekkopeli on pääpeliluokka. Se luodaan mainissa ensin ja sitten annetaan pä�
 
 Yhteydet muihin ui luokkiin kulkevat Kayttoliittyman ja sitä kautta Kiekkopeli luokan kautta, josta saadaan haettua tarvittavat muut luokat, eri asioiden ruudulle päivittämistä varten.
 
-Tapahtumankuuntelijat kuuntelevat mitä käyttäjä tekee ja pyytävät logiikkaluokkia toimimaan tämän mukaisesti. Nappaimistonkuuntelija on itse pelaamisesta(heittämisestä) vastuullinen tapahtumankuuntelija. Kiekonvaihtonapinkuuntelija kuuntelee milloin käyttäjä haluaa vaihtaa kiekkoa, ja ilmoittaa tästä logiikalle. Vaylanvaihtonapinkuuntelija tekee saman väylien vaihdon suhteen. Muut kuuntelijat liittyvät valikossa liikkumiseen.
+Tapahtumankuuntelijat kuuntelevat mitä käyttäjä tekee ja pyytävät logiikkaluokkia toimimaan tämän mukaisesti. Nappaimistonkuuntelija on itse pelaamisesta(heittämisestä) vastuullinen tapahtumankuuntelija. Kiekonvaihtonapinkuuntelija kuuntelee milloin käyttäjä haluaa vaihtaa kiekkoa, ja ilmoittaa tästä logiikalle. Vaylanvaihtonapinkuuntelija tekee saman väylien vaihdon suhteen. Muut kuuntelijat liittyvät pääasiassa valikossa liikkumiseen.
 
 Pelin valikossa on neljä ikkunaa, ja näihin liittyy nappeja tai JPaneleita, jotka näyttävät halutut asiat käyttäjälle.
 

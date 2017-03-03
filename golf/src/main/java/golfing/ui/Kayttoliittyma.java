@@ -1,12 +1,6 @@
 package golfing.ui;
 
-import golfing.kuuntelija.Vaylanapinkuuntelija;
-import golfing.kuuntelija.Tuloskortinkuuntelija;
-import golfing.kuuntelija.Nappaimistonkuuntelija;
-import golfing.kuuntelija.Menunkuuntelija;
-import golfing.kuuntelija.Napinkuuntelija;
-import golfing.kuuntelija.Kiekonvaihtonapinkuuntelija;
-import golfing.kuuntelija.Alkunaytonkuuntelija;
+import golfing.kuuntelija.*;
 import golfing.peli.Kiekkopeli;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -16,13 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 /**
  * Kiekkopelisovelluksen graafinen käyttöliittymä.
@@ -66,8 +54,9 @@ public class Kayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
 
-        CardLayout layout = new CardLayout();
-        JPanel kortit = new JPanel(layout);
+        CardLayout korttilayout = new CardLayout();
+        JPanel kortit = new JPanel(korttilayout);
+        
         // Välilehti napit
         JButton alku = new JButton("Aloitusnäyttö");
         JButton menu = new JButton("Menu");
@@ -75,38 +64,43 @@ public class Kayttoliittyma implements Runnable {
         JButton tuloskortti = new JButton("Tuloskortti");
 
         JPanel nappiPaneeli = new JPanel();
-        
+
         lisaaNapitPaneeliin(nappiPaneeli, alku, menu, peli, tuloskortti);
 
-        lisaaKuuntelijatValilehtiNapeille(alku, layout, kortit, menu, peli, tuloskortti);
+        lisaaKuuntelijatValilehtiNapeille(alku, korttilayout, kortit, menu, peli, tuloskortti);
+        
         // Pelaamisen kuuntelija
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(kike.getPelaaja());
         peli.addKeyListener(kuuntelija);
-        // Alku-ikkuna
-        BorderLayout alkulayout = new BorderLayout();
-        JTextField pelaajanNimi = new JTextField("Syötä tähän nimesi");
-        String[] ratavaihtoehdot = {"Ratavaihtoehdot tänään: " + kike.getRadat().getRadat().keySet(), "Pasila", "Kumpula"};
-        JComboBox radanNimi = new JComboBox(ratavaihtoehdot);
-        radanNimi.setSelectedIndex(0);
 
-        JButton vahvistusNappi = new JButton();
-
-        vahvistusNappi.addActionListener(new Alkunaytonkuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
-
-        JPanel alkupaneeli = new JPanel(alkulayout);
-        alkupaneeli.add(pelaajanNimi, BorderLayout.NORTH);
-        alkupaneeli.add(radanNimi, BorderLayout.SOUTH);
-        alkupaneeli.add(vahvistusNappi, BorderLayout.CENTER);
-// Laajennukseen eri olosuhteet eri päivinä ja kustomoidut kiekot
-//        alkupaneeli.add(viikonPaiva, BorderLayout.WEST);
-//        alkupaneeli.add(kiekonValinta, BorderLayout.EAST);
-        kortit.add(alkupaneeli, "alkuvalikko");
+        JButton vahvistusNappi = alkuIkkunanLuonti(korttilayout, kortit);
+        
         // Peli-ikkuna
         piirtoalusta = new Piirtoalusta(kike, pituus);
         kortit.add(piirtoalusta, "pelinakyma");
+        
+        menuIkkunanLuonti(vahvistusNappi, menu, kortit);
+        
+        tuloskorttiIkkunanLuonti(kortit, tuloskortti);
+
+        kike.setPaivitettava(piirtoalusta);
+
+        frame.add(kortit);
+
+        frame.add(nappiPaneeli, BorderLayout.SOUTH);
+    }
+
+    private void tuloskorttiIkkunanLuonti(JPanel kortit, JButton tuloskortti) {
+        // Tuloskortti -välilehti
+        Tuloskortinpiirtaja tuloskortinpiirtaja = new Tuloskortinpiirtaja(kike);
+        kortit.add(tuloskortinpiirtaja, "tuloskortti");
+        tuloskortti.addActionListener(new Tuloskortinkuuntelija(tuloskortinpiirtaja));
+    }
+
+    private void menuIkkunanLuonti(JButton vahvistusNappi, JButton menu, JPanel kortit) {
         // Menu -ikkuna
         BorderLayout menuLayout = new BorderLayout();
-        JPanel menupaneeli = new JPanel(menuLayout);
+        JPanel menuPaneeli = new JPanel(menuLayout);
 
         InputStream is = getClass().getClassLoader().getResourceAsStream("kumpulakartta.jpeg");
         InputStream ps = getClass().getClassLoader().getResourceAsStream("pasilakartta.jpeg");
@@ -120,7 +114,6 @@ public class Kayttoliittyma implements Runnable {
             af = ImageIO.read(as);
             pf = ImageIO.read(ps);
         } catch (Exception b) {
-
         }
         ImageIcon kumpulakartta = new ImageIcon(bf.getScaledInstance(400, 400, 400));
         ImageIcon pasilakartta = new ImageIcon(pf.getScaledInstance(400, 400, 400));
@@ -139,24 +132,34 @@ public class Kayttoliittyma implements Runnable {
         JButton vaylanVaihtoNappi = new JButton();
         vaylanVaihtoNappi.addActionListener(new Vaylanapinkuuntelija(kike));
         menu.addActionListener(new Menunkuuntelija(kike, vaylanVaihtoNappi, vaylakartat));
-        
+
         JButton kiekonVaihtoNappi = new JButton("Vaihda kiekkoa");
         kiekonVaihtoNappi.addActionListener(new Kiekonvaihtonapinkuuntelija(kike, kiekonVaihtoNappi));
 
-        menupaneeli.add(vaylanVaihtoNappi, BorderLayout.CENTER);
-        menupaneeli.add(kiekonVaihtoNappi, BorderLayout.NORTH);
+        menuPaneeli.add(vaylanVaihtoNappi, BorderLayout.CENTER);
+        menuPaneeli.add(kiekonVaihtoNappi, BorderLayout.NORTH);
 
-        kortit.add(menupaneeli, "menu");
-        // Tuloskortti -välilehti
-        Tuloskortinpiirtaja tuloskortinpiirtaja = new Tuloskortinpiirtaja(kike);
-        kortit.add(tuloskortinpiirtaja, "tuloskortti");
-        tuloskortti.addActionListener(new Tuloskortinkuuntelija(tuloskortinpiirtaja));
+        kortit.add(menuPaneeli, "menu");
+    }
 
-        kike.setPaivitettava(piirtoalusta);
-
-        frame.add(kortit);
-
-        frame.add(nappiPaneeli, BorderLayout.SOUTH);
+    private JButton alkuIkkunanLuonti(CardLayout layout, JPanel kortit) {
+        // Alku-ikkuna
+        BorderLayout alkulayout = new BorderLayout();
+        JTextField pelaajanNimi = new JTextField("Syötä tähän nimesi");
+        String[] ratavaihtoehdot = {"Ratavaihtoehdot tänään: " + kike.getRadat().getRadat().keySet(), "Pasila", "Kumpula"};
+        JComboBox radanNimi = new JComboBox(ratavaihtoehdot);
+        radanNimi.setSelectedIndex(0);
+        JButton vahvistusNappi = new JButton();
+        vahvistusNappi.addActionListener(new Alkunaytonkuuntelija(pelaajanNimi, radanNimi, kike, layout, kortit));
+        JPanel alkupaneeli = new JPanel(alkulayout);
+        alkupaneeli.add(pelaajanNimi, BorderLayout.NORTH);
+        alkupaneeli.add(radanNimi, BorderLayout.SOUTH);
+        alkupaneeli.add(vahvistusNappi, BorderLayout.CENTER);
+        // Laajennukseen eri olosuhteet eri päivinä ja kustomoidut kiekot
+//        alkupaneeli.add(viikonPaiva, BorderLayout.WEST);
+//        alkupaneeli.add(kiekonValinta, BorderLayout.EAST);
+        kortit.add(alkupaneeli, "alkuvalikko");
+        return vahvistusNappi;
     }
 
     private void lisaaNapitPaneeliin(JPanel nappiPaneeli, JButton alku, JButton menu, JButton peli, JButton tuloskortti) {
