@@ -25,7 +25,6 @@
 [Tuloskortti]1-1[Kiekkopeli]
 [Alkunaytonkuuntelija]1->1[Kiekkopeli]
 [Nappaimistonkuuntelija]1->1[Pelaaja]
-[Nappaimistonkuuntelija]1->1[Heitto]
 [<<interface>>Paivitettava]1-1[Kiekkopeli]
 [Tuloskortinkuuntelija]1->1[Tuloskortinpiirtaja]
 [Tuloskortinpiirtaja]1->1[Kiekkopeli]
